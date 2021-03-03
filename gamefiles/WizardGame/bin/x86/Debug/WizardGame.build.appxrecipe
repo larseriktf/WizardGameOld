@@ -40,8 +40,8 @@
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\bin\10.0.18362.0\XamlCompiler\Microsoft.UI.Xaml.Markup.winmd">
       <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\lars erik\Documents\dot_NET\wizardgame\gamefiles\WizardGame\Properties\Default.rd.xml">
-      <PackagePath>Properties\Default.rd.xml</PackagePath>
+    <AppxPackagedFile Include="C:\Users\lars erik\Documents\dot_NET\wizardgame\gamefiles\WizardGame\Assets\Sprites\Player\spr_player_idle.png">
+      <PackagePath>Assets\Sprites\Player\spr_player_idle.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\lars erik\Documents\dot_NET\wizardgame\gamefiles\WizardGame\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
@@ -69,6 +69,9 @@
     <AppxPackagedFile Include="C:\Users\lars erik\Documents\dot_NET\wizardgame\gamefiles\WizardGame\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\lars erik\Documents\dot_NET\wizardgame\gamefiles\WizardGame\Properties\Default.rd.xml">
+      <PackagePath>Properties\Default.rd.xml</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\lars erik\Documents\dot_NET\wizardgame\gamefiles\WizardGame\bin\x86\Debug\WizardGame.xr.xml">
       <PackagePath>WizardGame.xr.xml</PackagePath>

@@ -76,18 +76,19 @@ namespace WizardGame
             Microsoft.Graphics.Canvas.UI.Xaml.CanvasAnimatedDrawEventArgs args)
         {
             args.DrawingSession.DrawRectangle(100 + player.XOffset, 100 + player.YOffset, 50, 50, Colors.Aqua);
+            //args.DrawingSession.DrawImage(player.Sprite, player.XOffset, player.YOffset);
         }
 
         private void Canvas_CreateResources( // Creates Resources once
             Microsoft.Graphics.Canvas.UI.Xaml.CanvasAnimatedControl sender,
             Microsoft.Graphics.Canvas.UI.CanvasCreateResourcesEventArgs args)
         {
-            args.TrackAsyncAction(CreateResourcesAsync(sender).AsAsyncAction());
+            //args.TrackAsyncAction(CreateResourcesAsync(sender).AsAsyncAction());
         }
 
         async Task CreateResourcesAsync(CanvasAnimatedControl sender)
         {
-
+            player.Sprite = await CanvasBitmap.LoadAsync(sender, new Uri(player.BitMapUri));
         }
 
 
