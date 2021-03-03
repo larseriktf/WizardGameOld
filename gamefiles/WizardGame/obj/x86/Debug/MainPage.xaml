@@ -11,8 +11,7 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <canvas:CanvasAnimatedControl x:ConnectionId='2' x:Name="canvas"
-                                                                                />
+        <canvas:CanvasAnimatedControl x:ConnectionId='2' x:Name="canvas"                                                ClearColor="Black"/>
         
         
     </Grid>

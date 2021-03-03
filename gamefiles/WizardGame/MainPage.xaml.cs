@@ -34,18 +34,18 @@ namespace WizardGame
     /// </summary>
     public sealed partial class MainPage : Page
     {
-
+        CanvasBitmap playerSprite;
         DispatcherTimer gameTimer = new DispatcherTimer();
 
         Player player = new Player();
 
         public MainPage()
         {
-            this.InitializeComponent();
-
             gameTimer.Tick += GameTimerEvent;
             gameTimer.Interval = TimeSpan.FromMilliseconds(16);
             gameTimer.Start();
+
+            InitializeComponent();
         }
 
         // Every tick
@@ -71,26 +71,20 @@ namespace WizardGame
             this.canvas = null;
         }
 
-        private void Canvas_DrawAnimated( // Draws to CanvasControl everytime it is updated (default 60 frames per second)
-            Microsoft.Graphics.Canvas.UI.Xaml.ICanvasAnimatedControl sender,
-            Microsoft.Graphics.Canvas.UI.Xaml.CanvasAnimatedDrawEventArgs args)
-        {
-            args.DrawingSession.DrawRectangle(100 + player.XOffset, 100 + player.YOffset, 50, 50, Colors.Aqua);
-            //args.DrawingSession.DrawImage(player.Sprite, player.XOffset, player.YOffset);
-        }
-
-        private void Canvas_CreateResources( // Creates Resources once
-            Microsoft.Graphics.Canvas.UI.Xaml.CanvasAnimatedControl sender,
-            Microsoft.Graphics.Canvas.UI.CanvasCreateResourcesEventArgs args)
-        {
-            //args.TrackAsyncAction(CreateResourcesAsync(sender).AsAsyncAction());
+        private void CreateResources(CanvasAnimatedControl sender, Microsoft.Graphics.Canvas.UI.CanvasCreateResourcesEventArgs args)
+        { // Creates Resources once
+            args.TrackAsyncAction(CreateResourcesAsync(sender).AsAsyncAction());
         }
 
         async Task CreateResourcesAsync(CanvasAnimatedControl sender)
         {
-            player.Sprite = await CanvasBitmap.LoadAsync(sender, new Uri(player.BitMapUri));
+            playerSprite = await CanvasBitmap.LoadAsync(sender, new Uri(player.BitMapUri));
         }
 
-
+        private void Draw(ICanvasAnimatedControl sender, CanvasAnimatedDrawEventArgs args)
+        {
+            //args.DrawingSession.DrawRectangle(100 + player.XOffset, 100 + player.YOffset, 50, 50, Colors.Aqua);
+            args.DrawingSession.DrawImage(playerSprite, player.XOffset, player.YOffset, new Rect(0, 0, 64, 64));
+        }
     }
 }

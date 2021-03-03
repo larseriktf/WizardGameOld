@@ -12,8 +12,9 @@
       <RootProperty Name="Children" />
     </RootType>
     <RootType FullName="Microsoft.Graphics.Canvas.UI.Xaml.CanvasAnimatedControl">
-      <RootEvent Name="Draw" />
+      <RootProperty Name="ClearColor" />
       <RootEvent Name="CreateResources" />
+      <RootEvent Name="Draw" />
     </RootType>
     <RootType FullName="WizardGame.MainPage" />
   </Roots.RootTypes>

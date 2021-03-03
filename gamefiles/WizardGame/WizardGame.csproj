@@ -119,8 +119,11 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Classes\CanvasBitMap.cs" />
     <Compile Include="Classes\KeyBoard.cs" />
     <Compile Include="Classes\Player.cs" />
+    <Compile Include="Classes\Scaling.cs" />
+    <Compile Include="Classes\SpriteSheet.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>

@@ -11,8 +11,7 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <canvas:CanvasAnimatedControl x:Name="canvas"
-            Draw="Canvas_DrawAnimated" CreateResources="Canvas_CreateResources" />
+        <canvas:CanvasAnimatedControl x:Name="canvas" CreateResources="CreateResources" Draw="Draw"  ClearColor="Black"/>
         
         
     </Grid>

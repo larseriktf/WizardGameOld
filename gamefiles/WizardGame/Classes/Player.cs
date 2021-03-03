@@ -12,7 +12,7 @@ namespace WizardGame.Classes
         public int MoveSpeed { get; set; } = 10;
         public int XOffset { get; set; } = 0;
         public int YOffset { get; set; } = 0;
-        public string BitMapUri { get; set; } = "ms-appx:///Assets/Sprites/spr_player_idle.png";
+        public string BitMapUri { get; set; } = "ms-appx:///Assets/Sprites/Player/spr_player_idle.png";
         public CanvasBitmap Sprite { get; set; }
     }
 }
