@@ -35,9 +35,11 @@ namespace WizardGame
     public sealed partial class MainPage : Page
     {
         CanvasBitmap playerSprite;
+        SpriteSheet playerSheet;
         DispatcherTimer gameTimer = new DispatcherTimer();
 
         Player player = new Player();
+        
 
         public MainPage()
         {
@@ -74,6 +76,8 @@ namespace WizardGame
         private void CreateResources(CanvasAnimatedControl sender, Microsoft.Graphics.Canvas.UI.CanvasCreateResourcesEventArgs args)
         { // Creates Resources once
             args.TrackAsyncAction(CreateResourcesAsync(sender).AsAsyncAction());
+
+            playerSheet = new SpriteSheet(playerSprite, new Vector2(96, 96));
         }
 
         async Task CreateResourcesAsync(CanvasAnimatedControl sender)
@@ -85,22 +89,21 @@ namespace WizardGame
             playerSprite = await CanvasBitmap.LoadAsync(sender, new Uri(player.BitMapUri));
         }
 
+        async Task LoadImages(CanvasDevice device)
+        {
+            playerSheet = await SpriteSheet.LoadSpriteSheetAsync(device, new Uri(player.BitMapUri), new Vector2(96, 96));
+        }
+
         private void Draw(ICanvasAnimatedControl sender, CanvasAnimatedDrawEventArgs args)
         {
             var ds = args.DrawingSession;
             //ds.DrawRectangle(100 + player.XOffset, 100 + player.YOffset, 50, 50, Colors.Aqua);
-            ds.DrawImage(playerSprite, player.XOffset, player.YOffset, new Rect(0, 0, 64, 64));
+            //ds.DrawImage(playerSprite, player.XOffset, player.YOffset, new Rect(0, 0, 64, 64));
 
-            ds.Clear(Colors.Blue);
-
-            ds.Transform = Matrix3x2.CreateTranslation((float)sender.Size.Width * 0.5f, (float)sender.Size.Height * 0.5f);
-            ds.DrawLine(-100, 0, 100, 0, Colors.White, 1);
-            ds.DrawLine(0, -100, 0, 100, Colors.White, 1);
-
-            Rect r = new Rect(-25, -25, 50, 50);
-            ds.DrawRectangle(r, Colors.Red);
-            ds.Transform = Matrix3x2.CreateRotation(2) * ds.Transform;
-            ds.DrawRectangle(r, Colors.White);
+            using (var spriteBatch = ds.CreateSpriteBatch())
+            {
+                playerSheet.DrawSprite(spriteBatch, playerSprite, player.XOffset, player.YOffset, 5, 0);
+            }
         }
     }
 }
