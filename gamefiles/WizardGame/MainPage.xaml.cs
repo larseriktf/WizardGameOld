@@ -78,13 +78,29 @@ namespace WizardGame
 
         async Task CreateResourcesAsync(CanvasAnimatedControl sender)
         {
+            /*
+             can do sender.Height and sender.Width to change canvas size
+             Check out https://stackoverflow.com/questions/49945675/resizing-an-image-using-win2d-with-proportional-aspect-ratio
+            */
             playerSprite = await CanvasBitmap.LoadAsync(sender, new Uri(player.BitMapUri));
         }
 
         private void Draw(ICanvasAnimatedControl sender, CanvasAnimatedDrawEventArgs args)
         {
-            //args.DrawingSession.DrawRectangle(100 + player.XOffset, 100 + player.YOffset, 50, 50, Colors.Aqua);
-            args.DrawingSession.DrawImage(playerSprite, player.XOffset, player.YOffset, new Rect(0, 0, 64, 64));
+            var ds = args.DrawingSession;
+            //ds.DrawRectangle(100 + player.XOffset, 100 + player.YOffset, 50, 50, Colors.Aqua);
+            ds.DrawImage(playerSprite, player.XOffset, player.YOffset, new Rect(0, 0, 64, 64));
+
+            ds.Clear(Colors.Blue);
+
+            ds.Transform = Matrix3x2.CreateTranslation((float)sender.Size.Width * 0.5f, (float)sender.Size.Height * 0.5f);
+            ds.DrawLine(-100, 0, 100, 0, Colors.White, 1);
+            ds.DrawLine(0, -100, 0, 100, Colors.White, 1);
+
+            Rect r = new Rect(-25, -25, 50, 50);
+            ds.DrawRectangle(r, Colors.Red);
+            ds.Transform = Matrix3x2.CreateRotation(2) * ds.Transform;
+            ds.DrawRectangle(r, Colors.White);
         }
     }
 }
