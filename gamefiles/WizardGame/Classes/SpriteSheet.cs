@@ -9,7 +9,7 @@ namespace WizardGame.Classes
 {
     public class SpriteSheet
     {
-        private CanvasBitmap bitmap;
+        private readonly CanvasBitmap bitmap;
 
         public Vector2 SpriteSize { get; set; }
 

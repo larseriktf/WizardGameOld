@@ -23,6 +23,7 @@ using Windows.System;
 using Windows.UI.Core;
 using WizardGame.Classes;
 using Microsoft.Graphics.Canvas.UI.Xaml;
+using WizardGame.Classes.Entities;
 
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
@@ -34,8 +35,9 @@ namespace WizardGame
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        SpriteSheet playerSheet;
         DispatcherTimer gameTimer = new DispatcherTimer();
+
+        List<GameEntity> gameEntities = new List<GameEntity>();
 
         Player player = new Player();
         
@@ -80,11 +82,14 @@ namespace WizardGame
         {   // Creates Resources once
             // Load Images
             args.TrackAsyncAction(LoadImagesAsync(sender).AsAsyncAction());
+
+            // Add entities to list
+            gameEntities.Add(player);
         }
 
         async Task LoadImagesAsync(CanvasAnimatedControl sender)
         {   // Loads images and spritesheets
-            playerSheet = await SpriteSheet.LoadSpriteSheetAsync(sender.Device, player.BitMapUri, new Vector2(96, 96));
+            player.Sprite = await SpriteSheet.LoadSpriteSheetAsync(sender.Device, player.BitMapUri, new Vector2(96, 96));
         }
 
         private void OnDraw(ICanvasAnimatedControl sender, CanvasAnimatedDrawEventArgs args)
@@ -95,7 +100,10 @@ namespace WizardGame
 
             using (var spriteBatch = ds.CreateSpriteBatch())
             {
-                playerSheet.DrawSprite(spriteBatch, player.XOffset, player.YOffset, 5, 0); // , playerSprite
+                foreach (GameEntity entity in gameEntities)
+                {
+                    entity.Sprite.DrawSprite(spriteBatch, entity.XOffset, entity.YOffset, 0, 0);
+                }
             }
         }
     }
