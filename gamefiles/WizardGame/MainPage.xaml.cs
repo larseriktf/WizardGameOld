@@ -35,11 +35,9 @@ namespace WizardGame
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        DispatcherTimer gameTimer = new DispatcherTimer();
-
-        List<GameEntity> gameEntities = new List<GameEntity>();
-
-        Player player = new Player();
+        readonly DispatcherTimer gameTimer = new DispatcherTimer();
+        readonly List<GameEntity> gameEntities = new List<GameEntity>();
+        readonly Player player = new Player();
         
 
         public MainPage()
@@ -51,9 +49,8 @@ namespace WizardGame
             InitializeComponent();
         }
 
-        // Every tick
         private void GameTimerEvent(object sender, object e)
-        {
+        {   // Every tick
             TrackKeyboard();
         }
 
@@ -61,21 +58,24 @@ namespace WizardGame
         {
             KeyBoard.UpdateKeys();
 
-            if (KeyBoard.KeyLeft) player.XOffset -= player.MoveSpeed;
-            if (KeyBoard.KeyRight) player.XOffset += player.MoveSpeed;
-            if (KeyBoard.KeyUp) player.YOffset -= player.MoveSpeed;
-            if (KeyBoard.KeyDown) player.YOffset += player.MoveSpeed;
+            if (KeyBoard.KeyLeft)
+            {
+                player.XPos -= player.MoveSpeed;
+            }
+            if (KeyBoard.KeyRight) player.XPos += player.MoveSpeed;
+            if (KeyBoard.KeyUp) player.YPos -= player.MoveSpeed;
+            if (KeyBoard.KeyDown) player.YPos += player.MoveSpeed;
+        }
+
+        private void OnLoaded(object sender, RoutedEventArgs e)
+        {
+
         }
 
         void OnUnloaded(object sender, RoutedEventArgs e)
         {   // Best practice: Prevent simple memory leak
             this.canvas.RemoveFromVisualTree();
             this.canvas = null;
-        }
-
-        private void OnLoaded(object sender, RoutedEventArgs e)
-        {
-
         }
 
         private void OnCreateResources(CanvasAnimatedControl sender, Microsoft.Graphics.Canvas.UI.CanvasCreateResourcesEventArgs args)
@@ -102,7 +102,13 @@ namespace WizardGame
             {
                 foreach (GameEntity entity in gameEntities)
                 {
-                    entity.Sprite.DrawSprite(spriteBatch, entity.XOffset, entity.YOffset, 0, 0);
+                    entity.Sprite.DrawSpriteExt(
+                        spriteBatch,
+                        new Vector2(entity.XPos, entity.YPos),
+                        new Vector2(entity.ImageX, entity.ImageY),
+                        new Vector4(1, 1, 1, 1),
+                        0,
+                        new Vector2(1, 1));
                 }
             }
         }
