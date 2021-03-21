@@ -36,19 +36,6 @@ namespace WizardGame.Classes
         }
 
         public void DrawSpriteExt(CanvasSpriteBatch spriteBatch,
-            Vector2 pos, Vector2 imagePos, Vector4 rgba, float rotation, Vector2 scale)
-        {   // Draw Sprite Extended
-            spriteBatch.DrawFromSpriteSheet(
-                bitmap,
-                pos,
-                new Rect(imagePos.X * SpriteSize.X, imagePos.Y * SpriteSize.Y, SpriteSize.X, SpriteSize.Y),
-                rgba,                                                   // Tint -> rgba [0 to 1]
-                new Vector2(SpriteSize.X / 2, SpriteSize.Y / 2),        // Origin, now centered in the middle
-                rotation,                                               // Rotation in radians
-                scale,                                                  // Scale (default: 1, 1)
-                0);                                                     // CanvasSpriteFlip -> 0, 1, 2 or 3
-        }
-        public void DrawSpriteExt(CanvasSpriteBatch spriteBatch,
             Vector2 pos, Vector2 imagePos, Vector4 rgba, float rotation, Vector2 scale, CanvasSpriteFlip flip)
         {   // Draw Sprite Extended
             spriteBatch.DrawFromSpriteSheet(

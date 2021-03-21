@@ -61,8 +61,13 @@ namespace WizardGame
             if (KeyBoard.KeyLeft)
             {
                 player.XPos -= player.MoveSpeed;
+                player.XScale = -1f;
             }
-            if (KeyBoard.KeyRight) player.XPos += player.MoveSpeed;
+            if (KeyBoard.KeyRight)
+            {
+                player.XPos += player.MoveSpeed;
+                player.XScale = 1f;
+            }
             if (KeyBoard.KeyUp) player.YPos -= player.MoveSpeed;
             if (KeyBoard.KeyDown) player.YPos += player.MoveSpeed;
         }
@@ -106,9 +111,10 @@ namespace WizardGame
                         spriteBatch,
                         new Vector2(entity.XPos, entity.YPos),
                         new Vector2(entity.ImageX, entity.ImageY),
-                        new Vector4(1, 1, 1, 1),
+                        new Vector4(entity.Red, entity.Green, entity.Blue, entity.Alpha),
                         0,
-                        new Vector2(1, 1));
+                        new Vector2(entity.XScale, entity.YScale),
+                        0);
                 }
             }
         }
