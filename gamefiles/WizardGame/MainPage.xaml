@@ -7,11 +7,12 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:canvas="using:Microsoft.Graphics.Canvas.UI.Xaml"
     mc:Ignorable="d"
-    Unloaded="Page_Unloaded"
+    Loaded="OnLoaded"
+    Unloaded="OnUnloaded"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <canvas:CanvasAnimatedControl x:Name="canvas" CreateResources="CreateResources" Draw="Draw"  ClearColor="Black"/>
+        <canvas:CanvasAnimatedControl x:Name="canvas" CreateResources="OnCreateResources" Draw="OnDraw"  ClearColor="Black"/>
         
         
     </Grid>

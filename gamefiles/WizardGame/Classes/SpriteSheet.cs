@@ -3,6 +3,7 @@ using Microsoft.Graphics.Canvas.UI.Xaml;
 using System.Numerics;
 using System.Threading.Tasks;
 using Windows.Foundation;
+using System;
 
 namespace WizardGame.Classes
 {
@@ -23,10 +24,10 @@ namespace WizardGame.Classes
 
         public static async Task<SpriteSheet> LoadSpriteSheetAsync(CanvasDevice device, string fileName, Vector2 spriteSize)
         {
-            return new SpriteSheet(await CanvasBitmap.LoadAsync(device, fileName), spriteSize);
+            return new SpriteSheet(await CanvasBitmap.LoadAsync(device, new Uri(fileName)), spriteSize);
         }
 
-        public void DrawSprite(CanvasSpriteBatch spriteBatch, CanvasBitmap bitmap, int x, int y, int imageX, int imageY)
+        public void DrawSprite(CanvasSpriteBatch spriteBatch, int x, int y, int imageX, int imageY) // , CanvasBitmap bitmap
         {
             spriteBatch.DrawFromSpriteSheet(
                 bitmap,

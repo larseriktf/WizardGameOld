@@ -34,7 +34,6 @@ namespace WizardGame
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        CanvasBitmap playerSprite;
         SpriteSheet playerSheet;
         DispatcherTimer gameTimer = new DispatcherTimer();
 
@@ -66,35 +65,29 @@ namespace WizardGame
             if (KeyBoard.KeyDown) player.YOffset += player.MoveSpeed;
         }
 
-        // Best practice: Prevent simple memory leak
-        void Page_Unloaded(object sender, RoutedEventArgs e)
-        {
+        void OnUnloaded(object sender, RoutedEventArgs e)
+        {   // Best practice: Prevent simple memory leak
             this.canvas.RemoveFromVisualTree();
             this.canvas = null;
         }
 
-        private void CreateResources(CanvasAnimatedControl sender, Microsoft.Graphics.Canvas.UI.CanvasCreateResourcesEventArgs args)
-        { // Creates Resources once
-            args.TrackAsyncAction(CreateResourcesAsync(sender).AsAsyncAction());
-
-            playerSheet = new SpriteSheet(playerSprite, new Vector2(96, 96));
-        }
-
-        async Task CreateResourcesAsync(CanvasAnimatedControl sender)
+        private void OnLoaded(object sender, RoutedEventArgs e)
         {
-            /*
-             can do sender.Height and sender.Width to change canvas size
-             Check out https://stackoverflow.com/questions/49945675/resizing-an-image-using-win2d-with-proportional-aspect-ratio
-            */
-            playerSprite = await CanvasBitmap.LoadAsync(sender, new Uri(player.BitMapUri));
+
         }
 
-        async Task LoadImages(CanvasDevice device)
-        {
-            playerSheet = await SpriteSheet.LoadSpriteSheetAsync(device, new Uri(player.BitMapUri), new Vector2(96, 96));
+        private void OnCreateResources(CanvasAnimatedControl sender, Microsoft.Graphics.Canvas.UI.CanvasCreateResourcesEventArgs args)
+        {   // Creates Resources once
+            // Load Images
+            args.TrackAsyncAction(LoadImagesAsync(sender).AsAsyncAction());
         }
 
-        private void Draw(ICanvasAnimatedControl sender, CanvasAnimatedDrawEventArgs args)
+        async Task LoadImagesAsync(CanvasAnimatedControl sender)
+        {   // Loads images and spritesheets
+            playerSheet = await SpriteSheet.LoadSpriteSheetAsync(sender.Device, player.BitMapUri, new Vector2(96, 96));
+        }
+
+        private void OnDraw(ICanvasAnimatedControl sender, CanvasAnimatedDrawEventArgs args)
         {
             var ds = args.DrawingSession;
             //ds.DrawRectangle(100 + player.XOffset, 100 + player.YOffset, 50, 50, Colors.Aqua);
@@ -102,7 +95,7 @@ namespace WizardGame
 
             using (var spriteBatch = ds.CreateSpriteBatch())
             {
-                playerSheet.DrawSprite(spriteBatch, playerSprite, player.XOffset, player.YOffset, 5, 0);
+                playerSheet.DrawSprite(spriteBatch, player.XOffset, player.YOffset, 5, 0); // , playerSprite
             }
         }
     }
