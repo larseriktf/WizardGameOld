@@ -86,8 +86,9 @@ namespace WizardGame
         {   // Creates Resources once
             // Load Images
             args.TrackAsyncAction(LoadImagesAsync(sender).AsAsyncAction());
+            args.TrackAsyncAction(MapEditor.MakeMapsAsync(sender).AsAsyncAction());
 
-            // Add entities to list
+            // Add entities
             AddEntities();
         }
 
