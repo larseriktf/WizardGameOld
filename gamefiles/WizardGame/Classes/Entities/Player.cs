@@ -8,7 +8,7 @@ using WizardGame.Classes.Entities;
 
 namespace WizardGame.Classes
 {
-    public class Player : GameEntity
+    public class Player : Entity
     {
         public int MoveSpeed { get; set; } = 10;
         public string BitMapUri { get; set; } = "ms-appx:///Assets/Sprites/Player/spr_player_sheet.png";

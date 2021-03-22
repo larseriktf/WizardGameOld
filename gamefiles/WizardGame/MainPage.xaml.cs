@@ -36,7 +36,6 @@ namespace WizardGame
     public sealed partial class MainPage : Page
     {
         readonly DispatcherTimer gameTimer = new DispatcherTimer();
-        readonly List<GameEntity> gameEntities = new List<GameEntity>();
         readonly Player player = new Player();
         
 
@@ -89,7 +88,16 @@ namespace WizardGame
             args.TrackAsyncAction(LoadImagesAsync(sender).AsAsyncAction());
 
             // Add entities to list
-            gameEntities.Add(player);
+            AddEntities();
+        }
+
+        private void AddEntities()
+        {
+            Layer layer1 = new Layer("layer1");
+
+            layer1.Entities.Add(player);
+
+            LayerManager.Layers.Add(layer1);
         }
 
         async Task LoadImagesAsync(CanvasAnimatedControl sender)
@@ -105,9 +113,11 @@ namespace WizardGame
 
             using (var spriteBatch = ds.CreateSpriteBatch())
             {
-                foreach (GameEntity entity in gameEntities)
+                foreach (Layer layer in LayerManager.Layers)
                 {
-                    entity.Sprite.DrawSpriteExt(
+                    foreach (Entity entity in layer.Entities)
+                    {
+                        entity.Sprite.DrawSpriteExt(
                         spriteBatch,
                         new Vector2(entity.XPos, entity.YPos),
                         new Vector2(entity.ImageX, entity.ImageY),
@@ -115,6 +125,7 @@ namespace WizardGame
                         0,
                         new Vector2(entity.XScale, entity.YScale),
                         0);
+                    }
                 }
             }
         }
