@@ -9,9 +9,9 @@ namespace WizardGame.Classes.MapMaker
     public class MapLayout
     {
         public SpriteSheet SpriteSheet { get; set; }
-        public List<List<int>> Layout { get; set; } // 2D list
+        public int[,] Layout { get; set; } // multidimensional array
 
-        public MapLayout(SpriteSheet spriteSheet, List<List<int>> layout)
+        public MapLayout(SpriteSheet spriteSheet, int[,] layout)
         {
             SpriteSheet = spriteSheet;
             Layout = layout;

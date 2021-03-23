@@ -7,7 +7,7 @@ using WizardGame.Classes.MapMaker;
 
 namespace WizardGame.Classes
 {
-    public class Map
+    public class Map : GameObject
     {
         public List<MapLayout> MapLayouts { get; set; }
 

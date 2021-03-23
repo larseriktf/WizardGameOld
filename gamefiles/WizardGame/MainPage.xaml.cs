@@ -35,7 +35,8 @@ namespace WizardGame
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        readonly Dictionary<string, SpriteSheet> mapSpriteSheets;
+        private List<Map> maps;
+        Dictionary<string, SpriteSheet> mapSpriteSheets = new Dictionary<string, SpriteSheet>();
         readonly DispatcherTimer gameTimer = new DispatcherTimer();
         readonly Player player = new Player();
         
@@ -86,19 +87,26 @@ namespace WizardGame
         private void OnCreateResources(CanvasAnimatedControl sender, Microsoft.Graphics.Canvas.UI.CanvasCreateResourcesEventArgs args)
         {   // Creates Resources once
             // Load Images
-            args.TrackAsyncAction(LoadImagesAsync(sender).AsAsyncAction());
-
-            // Add entities
-            AddEntities();
+            args.TrackAsyncAction(LoadResourcesAsync(sender).AsAsyncAction());
         }
 
-        async Task LoadImagesAsync(CanvasAnimatedControl sender)
+        async Task LoadResourcesAsync(CanvasAnimatedControl sender)
         {   // Loads images and spritesheets
             player.Sprite = await SpriteSheet.LoadSpriteSheetAsync(sender.Device, player.BitMapUri, new Vector2(96, 96));
+
+            mapSpriteSheets.Add(
+                "dev",
+                await SpriteSheet.LoadSpriteSheetAsync(sender.Device, "ms-appx:///Assets/Sprites/Dev/spr_dev.jpg", new Vector2(128, 128)));
+
+            AddEntities();
         }
 
         private void AddEntities()
         {
+            // Get maps
+            maps = MapEditor.GetMaps(mapSpriteSheets);
+
+            // Add stuff
             Layer layer1 = new Layer("layer1");
 
             layer1.Entities.Add(player);
@@ -116,10 +124,14 @@ namespace WizardGame
 
             using (var spriteBatch = ds.CreateSpriteBatch())
             {
+
+                // Draw entities
                 foreach (Layer layer in LayerManager.Layers)
                 {
                     foreach (Entity entity in layer.Entities)
                     {
+                        // entity.DrawSelf();
+
                         entity.Sprite.DrawSpriteExt(
                         spriteBatch,
                         new Vector2(entity.XPos, entity.YPos),

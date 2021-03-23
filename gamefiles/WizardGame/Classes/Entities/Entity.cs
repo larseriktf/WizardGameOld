@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace WizardGame.Classes.Entities
 {
-    public abstract class Entity
+    public abstract class Entity : GameObject
     {
         public CanvasBitmap BitMap { get; set; }
         public SpriteSheet Sprite { get; set; }
