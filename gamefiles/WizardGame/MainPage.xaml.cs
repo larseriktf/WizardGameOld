@@ -109,7 +109,7 @@ namespace WizardGame
             // Add stuff
             Layer layer1 = new Layer("layer1");
 
-            layer1.Entities.Add(player);
+            layer1.GameObjects.Add(player);
 
             LayerManager.Layers.Add(layer1);
         }
@@ -128,18 +128,9 @@ namespace WizardGame
                 // Draw entities
                 foreach (Layer layer in LayerManager.Layers)
                 {
-                    foreach (Entity entity in layer.Entities)
+                    foreach (Entity gameObject in layer.GameObjects)
                     {
-                        // entity.DrawSelf();
-
-                        entity.Sprite.DrawSpriteExt(
-                        spriteBatch,
-                        new Vector2(entity.XPos, entity.YPos),
-                        new Vector2(entity.ImageX, entity.ImageY),
-                        new Vector4(entity.Red, entity.Green, entity.Blue, entity.Alpha),
-                        0,
-                        new Vector2(entity.XScale, entity.YScale),
-                        0);
+                        gameObject.DrawSelf(spriteBatch);   
                     }
                 }
             }

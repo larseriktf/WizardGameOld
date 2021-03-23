@@ -128,6 +128,7 @@
     <Compile Include="Classes\MapMaker\Map.cs" />
     <Compile Include="Classes\MapMaker\MapEditor.cs" />
     <Compile Include="Classes\SpriteSheet.cs" />
+    <Compile Include="Interfaces\IGameObjectModel.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
