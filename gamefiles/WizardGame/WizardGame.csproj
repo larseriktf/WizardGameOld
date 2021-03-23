@@ -124,6 +124,9 @@
     <Compile Include="Classes\Entities\Player.cs" />
     <Compile Include="Classes\Layer.cs" />
     <Compile Include="Classes\LayerManager.cs" />
+    <Compile Include="Classes\MapMaker\MapLayout.cs" />
+    <Compile Include="Classes\MapMaker\Map.cs" />
+    <Compile Include="Classes\MapMaker\MapEditor.cs" />
     <Compile Include="Classes\SpriteSheet.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>

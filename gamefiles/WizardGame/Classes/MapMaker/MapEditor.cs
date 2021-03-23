@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace WizardGame.Classes
 {
-    public static class MapEditor
+    public class MapEditor
     {
 
-        public static async Task MakeMapsAsync(CanvasAnimatedControl sender)
+        public static void MakeMapsAsync(Dictionary<string, SpriteSheet> SpriteSheets)
         {
             // map 1
-            player.Sprite = await SpriteSheet.LoadSpriteSheetAsync(sender.Device, player.BitMapUri, new Vector2(96, 96));
+            
         }
     }
 }

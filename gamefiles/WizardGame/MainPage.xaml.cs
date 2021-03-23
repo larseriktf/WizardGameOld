@@ -35,6 +35,7 @@ namespace WizardGame
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        readonly Dictionary<string, SpriteSheet> mapSpriteSheets;
         readonly DispatcherTimer gameTimer = new DispatcherTimer();
         readonly Player player = new Player();
         
@@ -86,10 +87,14 @@ namespace WizardGame
         {   // Creates Resources once
             // Load Images
             args.TrackAsyncAction(LoadImagesAsync(sender).AsAsyncAction());
-            args.TrackAsyncAction(MapEditor.MakeMapsAsync(sender).AsAsyncAction());
 
             // Add entities
             AddEntities();
+        }
+
+        async Task LoadImagesAsync(CanvasAnimatedControl sender)
+        {   // Loads images and spritesheets
+            player.Sprite = await SpriteSheet.LoadSpriteSheetAsync(sender.Device, player.BitMapUri, new Vector2(96, 96));
         }
 
         private void AddEntities()
@@ -101,10 +106,7 @@ namespace WizardGame
             LayerManager.Layers.Add(layer1);
         }
 
-        async Task LoadImagesAsync(CanvasAnimatedControl sender)
-        {   // Loads images and spritesheets
-            player.Sprite = await SpriteSheet.LoadSpriteSheetAsync(sender.Device, player.BitMapUri, new Vector2(96, 96));
-        }
+        
 
         private void OnDraw(ICanvasAnimatedControl sender, CanvasAnimatedDrawEventArgs args)
         {
