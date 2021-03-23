@@ -22,13 +22,13 @@ namespace WizardGame.Classes.MapMaker
 
         public void DrawSelf(CanvasSpriteBatch spriteBatch)
         {
-            for (int y = 0; y < Layout.Length; y++)
+            for (int x = 0; x < Layout.Length; x++)
             {
-                for (int x = 0; x < Layout[y].Length; x++)
+                for (int y = 0; y < Layout[x].Length; y++)
                 {
-                    int hey = Layout[x][y];
-
-                    Sprite.DrawSpriteExt(
+                    if (Layout[y][x] == 1)
+                    {
+                        Sprite.DrawSpriteExt(
                         spriteBatch,
                         new Vector2(x * 128, y * 128),
                         new Vector2(0, 0),
@@ -36,6 +36,7 @@ namespace WizardGame.Classes.MapMaker
                         0,
                         new Vector2(1, 1),
                         0);
+                    }
                 }
             }
         }

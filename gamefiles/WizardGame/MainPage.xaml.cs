@@ -116,6 +116,7 @@ namespace WizardGame
 
             layer1.GameObjects.Add(player);
 
+            LayerManager.Layers.Add(layer0);
             LayerManager.Layers.Add(layer1);
         }
 
