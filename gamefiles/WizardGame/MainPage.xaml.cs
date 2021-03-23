@@ -24,6 +24,7 @@ using Windows.UI.Core;
 using WizardGame.Classes;
 using Microsoft.Graphics.Canvas.UI.Xaml;
 using WizardGame.Classes.Entities;
+using WizardGame.Interfaces;
 
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
@@ -106,6 +107,10 @@ namespace WizardGame
             // Get maps
             maps = MapEditor.GetMaps(mapSpriteSheets);
 
+            // @TODO: Make this more flexible, so it allowes all maps to be added / Or just current playing map to be added
+            Layer layer0 = new Layer("layer0");
+            layer0.GameObjects.Add(maps[0].MapLayouts[0]);
+
             // Add stuff
             Layer layer1 = new Layer("layer1");
 
@@ -125,10 +130,10 @@ namespace WizardGame
             using (var spriteBatch = ds.CreateSpriteBatch())
             {
 
-                // Draw entities
+                // Draw gameObjects
                 foreach (Layer layer in LayerManager.Layers)
                 {
-                    foreach (Entity gameObject in layer.GameObjects)
+                    foreach (IGameObjectModel gameObject in layer.GameObjects)
                     {
                         gameObject.DrawSelf(spriteBatch);   
                     }

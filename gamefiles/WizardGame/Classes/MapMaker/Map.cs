@@ -9,18 +9,13 @@ using WizardGame.Interfaces;
 
 namespace WizardGame.Classes
 {
-    public class Map : IGameObjectModel
+    public class Map
     {
         public List<MapLayout> MapLayouts { get; set; }
 
         public Map(List<MapLayout> mapLayouts)
         {
             MapLayouts = mapLayouts;
-        }
-
-        public void DrawSelf(CanvasSpriteBatch spriteBatch)
-        {
-            throw new NotImplementedException();
         }
     }
 }
