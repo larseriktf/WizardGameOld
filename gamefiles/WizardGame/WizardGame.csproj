@@ -141,8 +141,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Sprites\Dev\spr_dev.jpg" />
-    <Content Include="Assets\Sprites\Player\spr_player_idle.png" />
-    <Content Include="Assets\Sprites\Player\spr_player_sheet.png" />
+    <Content Include="Assets\Sprites\Entities\Player\spr_player_idle.png" />
+    <Content Include="Assets\Sprites\Entities\Player\spr_player_sheet.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />

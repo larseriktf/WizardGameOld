@@ -43,11 +43,11 @@
     <AppxPackagedFile Include="C:\Users\lars erik\Documents\wizardgame\gamefiles\WizardGame\Assets\Sprites\Dev\spr_dev.jpg">
       <PackagePath>Assets\Sprites\Dev\spr_dev.jpg</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\lars erik\Documents\wizardgame\gamefiles\WizardGame\Assets\Sprites\Player\spr_player_idle.png">
-      <PackagePath>Assets\Sprites\Player\spr_player_idle.png</PackagePath>
+    <AppxPackagedFile Include="C:\Users\lars erik\Documents\wizardgame\gamefiles\WizardGame\Assets\Sprites\Entities\Player\spr_player_idle.png">
+      <PackagePath>Assets\Sprites\Entities\Player\spr_player_idle.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\lars erik\Documents\wizardgame\gamefiles\WizardGame\Assets\Sprites\Player\spr_player_sheet.png">
-      <PackagePath>Assets\Sprites\Player\spr_player_sheet.png</PackagePath>
+    <AppxPackagedFile Include="C:\Users\lars erik\Documents\wizardgame\gamefiles\WizardGame\Assets\Sprites\Entities\Player\spr_player_sheet.png">
+      <PackagePath>Assets\Sprites\Entities\Player\spr_player_sheet.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\lars erik\Documents\wizardgame\gamefiles\WizardGame\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>

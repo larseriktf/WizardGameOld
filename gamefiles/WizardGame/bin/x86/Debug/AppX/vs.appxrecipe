@@ -19,7 +19,7 @@
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
     <LayoutDir>C:\Users\lars erik\Documents\wizardgame\gamefiles\WizardGame\bin\x86\Debug\AppX</LayoutDir>
-    <RegisteredManifestChecksum>3537FEB0BAFA28DFB4A311B23228804CF63E2E2BDDA359792C9FAD3CB5F58093</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>14CCB2050BAC838FE461B32DD8CF3037877F14BEB792F9C3462C88A692CA2779</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>1ae19a5b-c9e6-4134-b41d-17476623687d_1.0.0.0_x86__0xr9e3rcrqjs6</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>1ae19a5b-c9e6-4134-b41d-17476623687d_0xr9e3rcrqjs6!App</RegisteredUserModeAppID>
     <RegisteredPackageID>1ae19a5b-c9e6-4134-b41d-17476623687d</RegisteredPackageID>
@@ -30,13 +30,13 @@
     <AppXManifest Include="C:\Users\lars erik\Documents\wizardgame\gamefiles\WizardGame\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2021-03-23T12:06:27.995</Modified>
+      <Modified>2021-04-05T18:06:29.138</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\lars erik\Documents\wizardgame\gamefiles\WizardGame\bin\x86\Debug\WizardGame.exe">
       <PackagePath>entrypoint\WizardGame.exe</PackagePath>
-      <Modified>2021-03-23T12:06:27.514</Modified>
+      <Modified>2021-04-05T18:06:28.634</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\lars erik\.nuget\packages\runtime.win10-x86.microsoft.netcore.universalwindowsplatform\6.2.12\runtimes\win10-x86\lib\uap10.0.15138\System.Runtime.dll">
       <PackagePath>System.Runtime.dll</PackagePath>
@@ -58,12 +58,12 @@
       <PackagePath>Assets\Sprites\Dev\spr_dev.jpg</PackagePath>
       <Modified>2021-03-23T08:27:26.525</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\lars erik\Documents\wizardgame\gamefiles\WizardGame\Assets\Sprites\Player\spr_player_idle.png">
-      <PackagePath>Assets\Sprites\Player\spr_player_idle.png</PackagePath>
+    <AppxPackagedFile Include="C:\Users\lars erik\Documents\wizardgame\gamefiles\WizardGame\Assets\Sprites\Entities\Player\spr_player_idle.png">
+      <PackagePath>Assets\Sprites\Entities\Player\spr_player_idle.png</PackagePath>
       <Modified>2021-03-03T11:02:38.238</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\lars erik\Documents\wizardgame\gamefiles\WizardGame\Assets\Sprites\Player\spr_player_sheet.png">
-      <PackagePath>Assets\Sprites\Player\spr_player_sheet.png</PackagePath>
+    <AppxPackagedFile Include="C:\Users\lars erik\Documents\wizardgame\gamefiles\WizardGame\Assets\Sprites\Entities\Player\spr_player_sheet.png">
+      <PackagePath>Assets\Sprites\Entities\Player\spr_player_sheet.png</PackagePath>
       <Modified>2021-03-19T06:35:35.565</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\lars erik\Documents\wizardgame\gamefiles\WizardGame\Assets\LockScreenLogo.scale-200.png">
@@ -110,11 +110,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\lars erik\Documents\wizardgame\gamefiles\WizardGame\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2021-03-23T12:06:27.424</Modified>
+      <Modified>2021-04-05T18:06:28.552</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\lars erik\Documents\wizardgame\gamefiles\WizardGame\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2021-03-23T12:06:27.425</Modified>
+      <Modified>2021-04-05T18:06:28.553</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.18362.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -122,11 +122,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\lars erik\Documents\wizardgame\gamefiles\WizardGame\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2021-03-23T09:47:12.595</Modified>
+      <Modified>2021-04-05T18:06:28.756</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\lars erik\Documents\wizardgame\gamefiles\WizardGame\bin\x86\Debug\Core\WizardGame.exe">
       <PackagePath>WizardGame.exe</PackagePath>
-      <Modified>2021-03-23T12:06:27.973</Modified>
+      <Modified>2021-04-05T18:06:29.119</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

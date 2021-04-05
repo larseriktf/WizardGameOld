@@ -30,7 +30,7 @@ namespace WizardGame.Classes.Entities
         public float Blue { get; set; } = 1f;
         public float Alpha { get; set; } = 1f;
 
-        public void DrawSelf(CanvasSpriteBatch spriteBatch)
+        public virtual void DrawSelf(CanvasSpriteBatch spriteBatch)
         {
             Sprite.DrawSpriteExt(
                 spriteBatch,
