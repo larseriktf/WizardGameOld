@@ -10,11 +10,26 @@ using WizardGame.Interfaces;
 
 namespace WizardGame.Classes
 {
-    public class Player : Entity, IGameObjectModel
+    public class Player :IGameObjectModel
     {
         public int MoveSpeed { get; set; } = 10;
-        public string BitMapUri { get; set; } = "ms-appx:///Assets/Sprites/Entities/Player/spr_player_sheet.png";
 
+        public string BitMapUri { get; set; } = "ms-appx:///Assets/Sprites/Entities/Player/spr_player.png";
+        public CanvasBitmap BitMap { get; set; }
+        public SpriteSheet Sprite { get; set; }
+
+        public int XPos { get; set; } = 0;
+        public int YPos { get; set; } = 0;
+
+        public int ImageX { get; set; } = 0;
+        public int ImageY { get; set; } = 0;
+        public float XScale { get; set; } = 1f;
+        public float YScale { get; set; } = 1f;
+
+        public float Red { get; set; } = 1f;
+        public float Green { get; set; } = 1f;
+        public float Blue { get; set; } = 1f;
+        public float Alpha { get; set; } = 1f;
 
         public void DrawSelf(CanvasSpriteBatch spriteBatch)
         {
@@ -30,7 +45,24 @@ namespace WizardGame.Classes
 
         public void UpdateMovement()
         {
-            throw new NotImplementedException();
+            if (KeyBoard.KeyLeft)
+            {
+                XPos -= MoveSpeed;
+                XScale = -1f;
+            }
+            if (KeyBoard.KeyRight)
+            {
+                XPos += MoveSpeed;
+                XScale = 1f;
+            }
+            if (KeyBoard.KeyUp)
+            {
+                YPos -= MoveSpeed;
+            }
+            if (KeyBoard.KeyDown)
+            {
+                YPos += MoveSpeed;
+            }
         }
     }
 }

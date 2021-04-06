@@ -120,7 +120,6 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Classes\Entities\CardEnemy.cs" />
-    <Compile Include="Classes\Entities\Entity.cs" />
     <Compile Include="Classes\KeyBoard.cs" />
     <Compile Include="Classes\Entities\Player.cs" />
     <Compile Include="Classes\Layer.cs" />
@@ -130,6 +129,7 @@
     <Compile Include="Classes\MapMaker\MapEditor.cs" />
     <Compile Include="Classes\SpriteSheet.cs" />
     <Compile Include="Interfaces\IGameObjectModel.cs" />
+    <Compile Include="Interfaces\ISpriteSheet.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -144,7 +144,7 @@
     <Content Include="Assets\Sprites\Dev\spr_dev.jpg" />
     <Content Include="Assets\Sprites\Entities\CardEnemy\spr_cards.png" />
     <Content Include="Assets\Sprites\Entities\Player\spr_player_idle.png" />
-    <Content Include="Assets\Sprites\Entities\Player\spr_player_sheet.png" />
+    <Content Include="Assets\Sprites\Entities\Player\spr_player.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />

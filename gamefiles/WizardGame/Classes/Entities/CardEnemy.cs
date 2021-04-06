@@ -9,9 +9,24 @@ using WizardGame.Interfaces;
 
 namespace WizardGame.Classes.Entities
 {
-    public class CardEnemy : Entity, IGameObjectModel
+    public class CardEnemy : IGameObjectModel
     {
         public string BitMapUri { get; set; } = "ms-appx:///Assets/Sprites/Entities/CardEnemy/spr_cards.png";
+        public CanvasBitmap BitMap { get; set; }
+        public SpriteSheet Sprite { get; set; }
+
+        public int XPos { get; set; } = 0;
+        public int YPos { get; set; } = 0;
+
+        public int ImageX { get; set; } = 0;
+        public int ImageY { get; set; } = 0;
+        public float XScale { get; set; } = 1f;
+        public float YScale { get; set; } = 1f;
+
+        public float Red { get; set; } = 1f;
+        public float Green { get; set; } = 1f;
+        public float Blue { get; set; } = 1f;
+        public float Alpha { get; set; } = 1f;
 
         public void DrawSelf(CanvasSpriteBatch spriteBatch)
         {
@@ -27,7 +42,7 @@ namespace WizardGame.Classes.Entities
 
         public void UpdateMovement()
         {
-            throw new NotImplementedException();
+            
         }
     }
 }

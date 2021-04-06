@@ -11,8 +11,24 @@ namespace WizardGame.Classes.MapMaker
 {
     public class MapLayout : IGameObjectModel
     {
-        public SpriteSheet Sprite { get; set; }
         public int[][] Layout { get; set; } // multidimensional array
+
+        public CanvasBitmap BitMap { get; set; }
+        public SpriteSheet Sprite { get; set; }
+
+        public int XPos { get; set; } = 0;
+        public int YPos { get; set; } = 0;
+
+        public int ImageX { get; set; } = 0;
+        public int ImageY { get; set; } = 0;
+        public float XScale { get; set; } = 1f;
+        public float YScale { get; set; } = 1f;
+
+        public float Red { get; set; } = 1f;
+        public float Green { get; set; } = 1f;
+        public float Blue { get; set; } = 1f;
+        public float Alpha { get; set; } = 1f;
+        public string BitMapUri { get; set; }
 
         public MapLayout(SpriteSheet spriteSheet, int[][] layout)
         {
@@ -39,6 +55,11 @@ namespace WizardGame.Classes.MapMaker
                     }
                 }
             }
+        }
+
+        public void UpdateMovement()
+        {
+            throw new NotImplementedException();
         }
     }
 }

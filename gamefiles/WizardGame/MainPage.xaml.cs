@@ -46,7 +46,7 @@ namespace WizardGame
             YPos = 500
         };
 
-        List<Entity> gameEntities = new List<Entity>();
+        List<IGameObjectModel> gameEntities = new List<IGameObjectModel>();
         
 
         public MainPage()
@@ -67,23 +67,10 @@ namespace WizardGame
         {
             KeyBoard.UpdateKeys();
 
-            foreach (Entity entity in gameEntities)
+            foreach (IGameObjectModel entity in gameEntities)
             {
-
+                entity.UpdateMovement();
             }
-
-            if (KeyBoard.KeyLeft)
-            {
-                player.XPos -= player.MoveSpeed;
-                player.XScale = -1f;
-            }
-            if (KeyBoard.KeyRight)
-            {
-                player.XPos += player.MoveSpeed;
-                player.XScale = 1f;
-            }
-            if (KeyBoard.KeyUp) player.YPos -= player.MoveSpeed;
-            if (KeyBoard.KeyDown) player.YPos += player.MoveSpeed;
         }
 
         private void OnLoaded(object sender, RoutedEventArgs e)
@@ -107,7 +94,7 @@ namespace WizardGame
         {   // Loads images and spritesheets
             gameEntities.Add(new Player()
             {
-                Sprite = await SpriteSheet.LoadSpriteSheetAsync(sender.Device, player.BitMapUri, new Vector2(96, 96))
+                Sprite = await SpriteSheet.LoadSpriteSheetAsync(sender.Device, player.BitMapUri, new Vector2(96, 96)),
             });
             gameEntities.Add(new CardEnemy()
             {
@@ -130,7 +117,7 @@ namespace WizardGame
             // Add stuff
             Layer layer1 = new Layer("layer1");
 
-            foreach (Entity entity in gameEntities)
+            foreach (IGameObjectModel entity in gameEntities)
             {
                 layer1.GameObjects.Add(entity);
             }
