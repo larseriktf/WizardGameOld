@@ -66,11 +66,6 @@ namespace WizardGame
         private void TrackKeyboard()
         {
             KeyBoard.UpdateKeys();
-
-            foreach (IGameObjectModel entity in gameEntities)
-            {
-                entity.UpdateMovement();
-            }
         }
 
         private void OnLoaded(object sender, RoutedEventArgs e)
@@ -124,27 +119,6 @@ namespace WizardGame
 
             LayerManager.Layers.Add(layer0);
             LayerManager.Layers.Add(layer1);
-
-            //AddEntities();
-        }
-
-        private void AddEntities()
-        {
-            // Get maps
-            maps = MapEditor.GetMaps(mapSpriteSheets);
-
-            // @TODO: Make this more flexible, so it allowes all maps to be added / Or just current playing map to be added
-            Layer layer0 = new Layer("layer0");
-            layer0.GameObjects.Add(maps[0].MapLayouts[0]);
-
-            // Add stuff
-            Layer layer1 = new Layer("layer1");
-
-            layer1.GameObjects.Add(player);
-            layer1.GameObjects.Add(card);
-
-            LayerManager.Layers.Add(layer0);
-            LayerManager.Layers.Add(layer1);
         }
 
         
@@ -152,8 +126,6 @@ namespace WizardGame
         private void OnDraw(ICanvasAnimatedControl sender, CanvasAnimatedDrawEventArgs args)
         {
             var ds = args.DrawingSession;
-            //ds.DrawRectangle(100 + player.XOffset, 100 + player.YOffset, 50, 50, Colors.Aqua);
-            //ds.DrawImage(playerSprite, player.XOffset, player.YOffset, new Rect(0, 0, 64, 64));
 
             using (var spriteBatch = ds.CreateSpriteBatch())
             {
@@ -163,6 +135,7 @@ namespace WizardGame
                 {
                     foreach (IGameObjectModel gameObject in layer.GameObjects)
                     {
+                        gameObject.UpdateMovement();
                         gameObject.DrawSelf(spriteBatch);   
                     }
                 }

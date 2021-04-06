@@ -59,7 +59,7 @@ namespace WizardGame.Classes.MapMaker
 
         public void UpdateMovement()
         {
-            throw new NotImplementedException();
+            
         }
     }
 }
