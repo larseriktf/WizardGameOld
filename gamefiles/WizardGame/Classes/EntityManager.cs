@@ -46,7 +46,7 @@ namespace WizardGame.Classes
             {
                 if (entity.GetType().Equals(className))
                 {
-                    return Activator.CreateInstance(className);
+                    return entity;
                 }
             }
             return null;
