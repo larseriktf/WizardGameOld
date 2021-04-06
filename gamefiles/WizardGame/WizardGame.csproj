@@ -119,6 +119,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Classes\Entities\CardEnemy.cs" />
     <Compile Include="Classes\Entities\Entity.cs" />
     <Compile Include="Classes\KeyBoard.cs" />
     <Compile Include="Classes\Entities\Player.cs" />
@@ -141,6 +142,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Sprites\Dev\spr_dev.jpg" />
+    <Content Include="Assets\Sprites\Entities\CardEnemy\spr_cards.png" />
     <Content Include="Assets\Sprites\Entities\Player\spr_player_idle.png" />
     <Content Include="Assets\Sprites\Entities\Player\spr_player_sheet.png" />
     <Content Include="Properties\Default.rd.xml" />

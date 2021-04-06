@@ -40,6 +40,13 @@ namespace WizardGame
         Dictionary<string, SpriteSheet> mapSpriteSheets = new Dictionary<string, SpriteSheet>();
         readonly DispatcherTimer gameTimer = new DispatcherTimer();
         readonly Player player = new Player();
+        readonly CardEnemy card = new CardEnemy()
+        {
+            XPos = 500,
+            YPos = 500
+        };
+
+        List<Entity> gameEntities = new List<Entity>();
         
 
         public MainPage()
@@ -59,6 +66,11 @@ namespace WizardGame
         private void TrackKeyboard()
         {
             KeyBoard.UpdateKeys();
+
+            foreach (Entity entity in gameEntities)
+            {
+
+            }
 
             if (KeyBoard.KeyLeft)
             {
@@ -93,13 +105,40 @@ namespace WizardGame
 
         async Task LoadResourcesAsync(CanvasAnimatedControl sender)
         {   // Loads images and spritesheets
-            player.Sprite = await SpriteSheet.LoadSpriteSheetAsync(sender.Device, player.BitMapUri, new Vector2(96, 96));
+            gameEntities.Add(new Player()
+            {
+                Sprite = await SpriteSheet.LoadSpriteSheetAsync(sender.Device, player.BitMapUri, new Vector2(96, 96))
+            });
+            gameEntities.Add(new CardEnemy()
+            {
+                Sprite = await SpriteSheet.LoadSpriteSheetAsync(sender.Device, card.BitMapUri, new Vector2(24, 24)),
+                XPos = 500,
+                YPos = 500
+            });
 
             mapSpriteSheets.Add(
                 "dev",
                 await SpriteSheet.LoadSpriteSheetAsync(sender.Device, "ms-appx:///Assets/Sprites/Dev/spr_dev.jpg", new Vector2(128, 128)));
 
-            AddEntities();
+            // Get maps
+            maps = MapEditor.GetMaps(mapSpriteSheets);
+
+            // @TODO: Make this more flexible, so it allowes all maps to be added / Or just current playing map to be added
+            Layer layer0 = new Layer("layer0");
+            layer0.GameObjects.Add(maps[0].MapLayouts[0]);
+
+            // Add stuff
+            Layer layer1 = new Layer("layer1");
+
+            foreach (Entity entity in gameEntities)
+            {
+                layer1.GameObjects.Add(entity);
+            }
+
+            LayerManager.Layers.Add(layer0);
+            LayerManager.Layers.Add(layer1);
+
+            //AddEntities();
         }
 
         private void AddEntities()
@@ -115,6 +154,7 @@ namespace WizardGame
             Layer layer1 = new Layer("layer1");
 
             layer1.GameObjects.Add(player);
+            layer1.GameObjects.Add(card);
 
             LayerManager.Layers.Add(layer0);
             LayerManager.Layers.Add(layer1);

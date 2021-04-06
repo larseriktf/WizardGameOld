@@ -2,6 +2,7 @@ WinMetadata\Windows.winmd
 Assets\LockScreenLogo.scale-200.png
 Assets\SplashScreen.scale-200.png
 Assets\Sprites\Dev\spr_dev.jpg
+Assets\Sprites\Entities\CardEnemy\spr_cards.png
 Assets\Sprites\Entities\Player\spr_player_idle.png
 Assets\Sprites\Entities\Player\spr_player_sheet.png
 Assets\Square150x150Logo.scale-200.png

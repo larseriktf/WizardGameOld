@@ -10,5 +10,6 @@ namespace WizardGame.Interfaces
     public interface IGameObjectModel
     {
         void DrawSelf(CanvasSpriteBatch spriteBatch);
+        void UpdateMovement();
     }
 }

@@ -9,7 +9,7 @@ using WizardGame.Interfaces;
 
 namespace WizardGame.Classes.Entities
 {
-    public abstract class Entity : IGameObjectModel
+    public abstract class Entity
     {
         public CanvasBitmap BitMap { get; set; }
         public SpriteSheet Sprite { get; set; }
@@ -29,17 +29,5 @@ namespace WizardGame.Classes.Entities
         public float Green { get; set; } = 1f;
         public float Blue { get; set; } = 1f;
         public float Alpha { get; set; } = 1f;
-
-        public virtual void DrawSelf(CanvasSpriteBatch spriteBatch)
-        {
-            Sprite.DrawSpriteExt(
-                spriteBatch,
-                new Vector2(XPos, YPos),
-                new Vector2(ImageX, ImageY),
-                new Vector4(Red, Green, Blue, Alpha),
-                0,
-                new Vector2(XScale, YScale),
-                0);
-        }
     }
 }
