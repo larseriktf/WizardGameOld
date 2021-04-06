@@ -10,7 +10,7 @@ using static System.Math;
 
 namespace WizardGame.Classes.Entities
 {
-    public class CardEnemy : IGameObjectModel
+    public class CardEnemy : IEntitySpriteModel
     {
         public string BitMapUri { get; set; } = "ms-appx:///Assets/Sprites/Entities/CardEnemy/spr_cards.png";
         public CanvasBitmap BitMap { get; set; }
@@ -58,14 +58,6 @@ namespace WizardGame.Classes.Entities
                 (float)(angle - 0.5 * Math.PI),
                 new Vector2(XScale, YScale),
                 0);
-        }
-
-        public void UpdateMovement()
-        {
-            // New x = cos Theta
-            // new y = sin Theta
-            // Length: |A| = \sqrt{ AcosTheta^2 + AsinTheta^2 }
-            // Theta = tan^(-1) | AcosTheta / AsinTheta |
         }
     }
 }

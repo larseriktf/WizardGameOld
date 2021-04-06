@@ -8,14 +8,11 @@ using WizardGame.Classes;
 
 namespace WizardGame.Interfaces
 {
-    public interface IGameObjectModel : ISpriteSheet
+    public interface IEntitySpriteModel : IEntityModel
     {
-        string BitMapUri { get; set; }
-        CanvasBitmap BitMap { get; set; }
+        SpriteSheet Sprite { get; set; }
 
         // Coordinates
-        float XPos { get; set; }
-        float YPos { get; set; }
         int ImageX { get; set; }
         int ImageY { get; set; }
 
@@ -28,8 +25,5 @@ namespace WizardGame.Interfaces
         float Green { get; set; }
         float Blue { get; set; }
         float Alpha { get; set; }
-
-        void DrawSelf(CanvasSpriteBatch spriteBatch);
-        void UpdateMovement();
     }
 }

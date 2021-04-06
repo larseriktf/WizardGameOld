@@ -10,7 +10,7 @@ using WizardGame.Interfaces;
 
 namespace WizardGame.Classes
 {
-    public class Player :IGameObjectModel
+    public class Player :IEntitySpriteModel
     {
         public int MoveSpeed { get; set; } = 10;
 
@@ -33,18 +33,6 @@ namespace WizardGame.Classes
 
         public void DrawSelf(CanvasSpriteBatch spriteBatch)
         {
-            Sprite.DrawSpriteExt(
-                spriteBatch,
-                new Vector2(XPos, YPos),
-                new Vector2(ImageX, ImageY),
-                new Vector4(Red, Green, Blue, Alpha),
-                0,
-                new Vector2(XScale, YScale),
-                0);
-        }
-
-        public void UpdateMovement()
-        {
             if (KeyBoard.KeyLeft)
             {
                 XPos -= MoveSpeed;
@@ -63,6 +51,15 @@ namespace WizardGame.Classes
             {
                 YPos += MoveSpeed;
             }
+
+            Sprite.DrawSpriteExt(
+                spriteBatch,
+                new Vector2(XPos, YPos),
+                new Vector2(ImageX, ImageY),
+                new Vector4(Red, Green, Blue, Alpha),
+                0,
+                new Vector2(XScale, YScale),
+                0);
         }
     }
 }

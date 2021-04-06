@@ -9,7 +9,7 @@ using WizardGame.Interfaces;
 
 namespace WizardGame.Classes.Entities
 {
-    public class CoordPoint : IGameObjectModel
+    public class CoordPoint : IEntitySpriteModel
     {
         public string BitMapUri { get; set; } = "ms-appx:///Assets/Sprites/Dev/spr_point.jpg";
         public CanvasBitmap BitMap { get; set; }
@@ -38,11 +38,6 @@ namespace WizardGame.Classes.Entities
                 0,
                 new Vector2(XScale, YScale),
                 0);
-        }
-
-        public void UpdateMovement()
-        {
-           
         }
     }
 }

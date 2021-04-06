@@ -14,11 +14,11 @@ namespace WizardGame.Classes
     {
         public static List<Layer> Layers { get; set; } = new List<Layer>();
 
-        public static List<IGameObjectModel> gameEntities = new List<IGameObjectModel>();
+        public static List<IEntityModel> gameEntities = new List<IEntityModel>();
 
         public static bool EntityExists(Type className)
         {   // Runs through list of entities and checks if they are of type className
-            foreach (IGameObjectModel entity in gameEntities)
+            foreach (IEntityModel entity in gameEntities)
             {
                 if (entity.GetType().Equals(className))
                 {   
@@ -31,7 +31,7 @@ namespace WizardGame.Classes
         public static bool SingleEntityExists(Type className)
         {
             int occurrences = 0;
-            foreach (IGameObjectModel entity in gameEntities)
+            foreach (IEntityModel entity in gameEntities)
             {
                 if (entity.GetType().Equals(className))
                 {
@@ -44,7 +44,7 @@ namespace WizardGame.Classes
 
         public static Object GetSingleEntity(Type className)
         {
-            foreach (IGameObjectModel entity in gameEntities)
+            foreach (IEntityModel entity in gameEntities)
             {
                 if (entity.GetType().Equals(className))
                 {
@@ -54,7 +54,7 @@ namespace WizardGame.Classes
             return null;
         }
 
-        public static double GetAngleBetweenEntitiesInRadians(IGameObjectModel objA, IGameObjectModel objB)
+        public static double GetAngleBetweenEntitiesInRadians(IEntityModel objA, IEntityModel objB)
         {
             // Vector between objA and objB
             Vector2 a = new Vector2(objB.XPos - objA.XPos, objB.YPos - objA.YPos);

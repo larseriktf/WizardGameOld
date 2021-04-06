@@ -115,7 +115,7 @@ namespace WizardGame
             // Add stuff
             Layer layer1 = new Layer("layer1");
 
-            foreach (IGameObjectModel entity in EntityManager.gameEntities)
+            foreach (IEntityModel entity in EntityManager.gameEntities)
             {
                 layer1.GameObjects.Add(entity);
             }
@@ -136,9 +136,8 @@ namespace WizardGame
                 // Draw gameObjects
                 foreach (Layer layer in EntityManager.Layers)
                 {
-                    foreach (IGameObjectModel gameObject in layer.GameObjects)
+                    foreach (IEntityModel gameObject in layer.GameObjects)
                     {
-                        gameObject.UpdateMovement();
                         gameObject.DrawSelf(spriteBatch);   
                     }
                 }
