@@ -35,8 +35,9 @@ namespace WizardGame.Classes.Entities
             int speed = 2;
 
 
-            if (EntityManager.EntityExists(typeof(CoordPoint)))
+            if (EntityManager.SingleEntityExists(typeof(CoordPoint)))
             {
+                CoordPoint coordPoint = (CoordPoint)EntityManager.GetSingleEntity(typeof(CoordPoint));
 
             }
 

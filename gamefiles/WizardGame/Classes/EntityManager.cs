@@ -25,5 +25,31 @@ namespace WizardGame.Classes
             }
             return false;
         }
+
+        public static bool SingleEntityExists(Type className)
+        {
+            int occurrences = 0;
+            foreach (IGameObjectModel entity in gameEntities)
+            {
+                if (entity.GetType().Equals(className))
+                {
+                    occurrences++;
+                }
+            }
+            if (occurrences == 1) return true;
+            return false;
+        }
+
+        public static Object GetSingleEntity(Type className)
+        {
+            foreach (IGameObjectModel entity in gameEntities)
+            {
+                if (entity.GetType().Equals(className))
+                {
+                    return Activator.CreateInstance(className);
+                }
+            }
+            return null;
+        }
     }
 }
