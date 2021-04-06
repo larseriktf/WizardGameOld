@@ -16,14 +16,19 @@ namespace WizardGame.Classes
         public static bool KeyRight { get; set; }
         public static bool KeyUp { get; set; }
         public static bool KeyDown { get; set; }
-
+        public static Windows.Foundation.Point PointerPosition { get; set; }
+        public static bool MouseOnePressed { get; set; }
 
         public static void UpdateKeys()
         {
+            // Keys
             KeyLeft = Window.Current.CoreWindow.GetKeyState(VirtualKey.A).HasFlag(CoreVirtualKeyStates.Down);
             KeyRight = Window.Current.CoreWindow.GetKeyState(VirtualKey.D).HasFlag(CoreVirtualKeyStates.Down);
             KeyUp = Window.Current.CoreWindow.GetKeyState(VirtualKey.W).HasFlag(CoreVirtualKeyStates.Down);
             KeyDown = Window.Current.CoreWindow.GetKeyState(VirtualKey.S).HasFlag(CoreVirtualKeyStates.Down);
+
+            // Mouse
+            PointerPosition = Window.Current.CoreWindow.PointerPosition;
         }
     }
 }

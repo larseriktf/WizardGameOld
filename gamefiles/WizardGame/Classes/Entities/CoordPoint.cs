@@ -30,6 +30,9 @@ namespace WizardGame.Classes.Entities
 
         public void DrawSelf(CanvasSpriteBatch spriteBatch)
         {
+            XPos = KeyBoard.PointerPosition.ToVector2().X;
+            YPos = KeyBoard.PointerPosition.ToVector2().Y;
+
             Sprite.DrawSpriteExt(
                 spriteBatch,
                 new Vector2(XPos, YPos),

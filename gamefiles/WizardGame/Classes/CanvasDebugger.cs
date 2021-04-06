@@ -12,7 +12,7 @@ namespace WizardGame.Classes
     {
         private static int xIndent = 25;
         private static int yIndent = 25;
-        public static List<string> Messages { get; set; } = new List<string>();
+        public static List<DebugMessage> Messages { get; set; } = new List<DebugMessage>();
 
         public static void DrawMessages(CanvasDrawingSession ds)
         {
@@ -21,13 +21,18 @@ namespace WizardGame.Classes
 
             for (int i = 0; i < Messages.Count(); i++)
             {
-                ds.DrawText(Messages[i], xIndent, yIndent * (i + 3), Colors.White);
+                ds.DrawText(Messages[i].Message, xIndent, yIndent * (i + 3), Colors.White);
             }
         }
 
-        public static void DebugMessage(string message)
+        public static void Debug(DebugMessage message)
         {
             if (!Messages.Contains(message)) Messages.Add(message);
+        }
+
+        public class DebugMessage
+        {
+            public string Message { get; set; }
         }
     }
 }
