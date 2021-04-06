@@ -119,6 +119,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Classes\CanvasDebugger.cs" />
     <Compile Include="Classes\Entities\CardEnemy.cs" />
     <Compile Include="Classes\Entities\CoordPoint.cs" />
     <Compile Include="Classes\KeyBoard.cs" />

@@ -98,7 +98,7 @@ namespace WizardGame
             {
                 Sprite = await SpriteSheet.LoadSpriteSheetAsync(sender.Device, point.BitMapUri, new Vector2(8, 8)),
                 XPos = 1000,
-                YPos = 500
+                YPos = 750
             });
 
             mapSpriteSheets.Add(
@@ -143,6 +143,8 @@ namespace WizardGame
                     }
                 }
             }
+
+            CanvasDebugger.DrawMessages(ds);
         }
     }
 }

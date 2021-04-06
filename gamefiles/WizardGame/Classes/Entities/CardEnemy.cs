@@ -29,20 +29,32 @@ namespace WizardGame.Classes.Entities
         public float Alpha { get; set; } = 1f;
 
         private double angle = 0.5 * Math.PI;
+        private double nextAngle = 0;
 
         public void DrawSelf(CanvasSpriteBatch spriteBatch)
         {
             int speed = 2;
 
-
             if (EntityManager.SingleEntityExists(typeof(CoordPoint)))
             {
                 CoordPoint coordPoint = (CoordPoint)EntityManager.GetSingleEntity(typeof(CoordPoint));
+
+                // 1. find vector between x and y and point.x and point.y
+                Vector2 firstVector = new Vector2(coordPoint.XPos - XPos, coordPoint.YPos - YPos);
+
+                // 2. find horizontal vector of some random length, doesn't matter, but must have origin in x and y
+                Vector2 horizontalVector = new Vector2(1, 0);
+
+                // 3. Do the required math
+                angle = Math.Atan2(horizontalVector.Y - firstVector.Y, horizontalVector.X - firstVector.X) * (Math.PI / 180);
+
+                CanvasDebugger.DebugMessage("coordPoint.X: " + coordPoint.XPos + " coordPoint.Y: " + coordPoint.YPos);
 
             }
 
             XPos += (float)(speed * Math.Cos(angle));
             YPos += (float)(speed * Math.Sin(angle));
+
 
             Sprite.DrawSpriteExt(
                 spriteBatch,
