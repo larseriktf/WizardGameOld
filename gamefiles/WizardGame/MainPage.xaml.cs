@@ -40,13 +40,10 @@ namespace WizardGame
         Dictionary<string, SpriteSheet> mapSpriteSheets = new Dictionary<string, SpriteSheet>();
         readonly DispatcherTimer gameTimer = new DispatcherTimer();
         readonly Player player = new Player();
-        readonly CardEnemy card = new CardEnemy()
-        {
-            XPos = 500,
-            YPos = 500
-        };
+        readonly CardEnemy card = new CardEnemy();
+        readonly CoordPoint point = new CoordPoint();
 
-        List<IGameObjectModel> gameEntities = new List<IGameObjectModel>();
+        
         
 
         public MainPage()
@@ -87,14 +84,20 @@ namespace WizardGame
 
         async Task LoadResourcesAsync(CanvasAnimatedControl sender)
         {   // Loads images and spritesheets
-            gameEntities.Add(new Player()
+            EntityManager.gameEntities.Add(new Player()
             {
                 Sprite = await SpriteSheet.LoadSpriteSheetAsync(sender.Device, player.BitMapUri, new Vector2(96, 96)),
             });
-            gameEntities.Add(new CardEnemy()
+            EntityManager.gameEntities.Add(new CardEnemy()
             {
                 Sprite = await SpriteSheet.LoadSpriteSheetAsync(sender.Device, card.BitMapUri, new Vector2(24, 24)),
                 XPos = 500,
+                YPos = 500
+            });
+            EntityManager.gameEntities.Add(new CoordPoint()
+            {
+                Sprite = await SpriteSheet.LoadSpriteSheetAsync(sender.Device, point.BitMapUri, new Vector2(8, 8)),
+                XPos = 1000,
                 YPos = 500
             });
 
@@ -112,13 +115,13 @@ namespace WizardGame
             // Add stuff
             Layer layer1 = new Layer("layer1");
 
-            foreach (IGameObjectModel entity in gameEntities)
+            foreach (IGameObjectModel entity in EntityManager.gameEntities)
             {
                 layer1.GameObjects.Add(entity);
             }
 
-            LayerManager.Layers.Add(layer0);
-            LayerManager.Layers.Add(layer1);
+            EntityManager.Layers.Add(layer0);
+            EntityManager.Layers.Add(layer1);
         }
 
         
@@ -131,7 +134,7 @@ namespace WizardGame
             {
 
                 // Draw gameObjects
-                foreach (Layer layer in LayerManager.Layers)
+                foreach (Layer layer in EntityManager.Layers)
                 {
                     foreach (IGameObjectModel gameObject in layer.GameObjects)
                     {

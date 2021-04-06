@@ -43,6 +43,9 @@
     <AppxPackagedFile Include="C:\Users\lars erik\Documents\wizardgame\gamefiles\WizardGame\Assets\Sprites\Dev\spr_dev.jpg">
       <PackagePath>Assets\Sprites\Dev\spr_dev.jpg</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\lars erik\Documents\wizardgame\gamefiles\WizardGame\Assets\Sprites\Dev\spr_point.jpg">
+      <PackagePath>Assets\Sprites\Dev\spr_point.jpg</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\lars erik\Documents\wizardgame\gamefiles\WizardGame\Assets\Sprites\Entities\CardEnemy\spr_cards.png">
       <PackagePath>Assets\Sprites\Entities\CardEnemy\spr_cards.png</PackagePath>
     </AppxPackagedFile>

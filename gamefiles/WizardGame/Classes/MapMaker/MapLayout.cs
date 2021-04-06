@@ -16,8 +16,8 @@ namespace WizardGame.Classes.MapMaker
         public CanvasBitmap BitMap { get; set; }
         public SpriteSheet Sprite { get; set; }
 
-        public int XPos { get; set; } = 0;
-        public int YPos { get; set; } = 0;
+        public float XPos { get; set; } = 0;
+        public float YPos { get; set; } = 0;
 
         public int ImageX { get; set; } = 0;
         public int ImageY { get; set; } = 0;

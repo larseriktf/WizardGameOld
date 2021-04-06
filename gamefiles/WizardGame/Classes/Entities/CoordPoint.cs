@@ -5,16 +5,13 @@ using System.Linq;
 using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
-using WizardGame.Classes.Entities;
 using WizardGame.Interfaces;
 
-namespace WizardGame.Classes
+namespace WizardGame.Classes.Entities
 {
-    public class Player :IGameObjectModel
+    public class CoordPoint : IGameObjectModel
     {
-        public int MoveSpeed { get; set; } = 10;
-
-        public string BitMapUri { get; set; } = "ms-appx:///Assets/Sprites/Entities/Player/spr_player.png";
+        public string BitMapUri { get; set; } = "ms-appx:///Assets/Sprites/Dev/spr_point.jpg";
         public CanvasBitmap BitMap { get; set; }
         public SpriteSheet Sprite { get; set; }
 
@@ -45,24 +42,7 @@ namespace WizardGame.Classes
 
         public void UpdateMovement()
         {
-            if (KeyBoard.KeyLeft)
-            {
-                XPos -= MoveSpeed;
-                XScale = -1f;
-            }
-            if (KeyBoard.KeyRight)
-            {
-                XPos += MoveSpeed;
-                XScale = 1f;
-            }
-            if (KeyBoard.KeyUp)
-            {
-                YPos -= MoveSpeed;
-            }
-            if (KeyBoard.KeyDown)
-            {
-                YPos += MoveSpeed;
-            }
+           
         }
     }
 }

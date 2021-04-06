@@ -15,8 +15,8 @@ namespace WizardGame.Classes.Entities
         public CanvasBitmap BitMap { get; set; }
         public SpriteSheet Sprite { get; set; }
 
-        public int XPos { get; set; } = 0;
-        public int YPos { get; set; } = 0;
+        public float XPos { get; set; } = 0;
+        public float YPos { get; set; } = 0;
 
         public int ImageX { get; set; } = 0;
         public int ImageY { get; set; } = 0;
@@ -28,21 +28,37 @@ namespace WizardGame.Classes.Entities
         public float Blue { get; set; } = 1f;
         public float Alpha { get; set; } = 1f;
 
+        private double angle = 0.5 * Math.PI;
+
         public void DrawSelf(CanvasSpriteBatch spriteBatch)
         {
+            int speed = 2;
+
+
+            if (EntityManager.EntityExists(typeof(CoordPoint)))
+            {
+
+            }
+
+            XPos += (float)(speed * Math.Cos(angle));
+            YPos += (float)(speed * Math.Sin(angle));
+
             Sprite.DrawSpriteExt(
                 spriteBatch,
                 new Vector2(XPos, YPos),
                 new Vector2(ImageX, ImageY),
                 new Vector4(Red, Green, Blue, Alpha),
-                0,
+                (float)(angle - 0.5 * Math.PI),
                 new Vector2(XScale, YScale),
                 0);
         }
 
         public void UpdateMovement()
         {
-            
+            // New x = cos Theta
+            // new y = sin Theta
+            // Length: |A| = \sqrt{ AcosTheta^2 + AsinTheta^2 }
+            // Theta = tan^(-1) | AcosTheta / AsinTheta |
         }
     }
 }

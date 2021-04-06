@@ -14,8 +14,8 @@ namespace WizardGame.Interfaces
         CanvasBitmap BitMap { get; set; }
 
         // Coordinates
-        int XPos { get; set; }
-        int YPos { get; set; }
+        float XPos { get; set; }
+        float YPos { get; set; }
         int ImageX { get; set; }
         int ImageY { get; set; }
 
