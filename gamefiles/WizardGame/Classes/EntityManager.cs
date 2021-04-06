@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using WizardGame.Classes.Entities;
 using WizardGame.Interfaces;
+using static System.Math;
 
 namespace WizardGame.Classes
 {
@@ -50,6 +52,19 @@ namespace WizardGame.Classes
                 }
             }
             return null;
+        }
+
+        public static double GetAngleBetweenEntitiesInRadians(IGameObjectModel objA, IGameObjectModel objB)
+        {
+            // Vector between objA and objB
+            Vector2 a = new Vector2(objB.XPos - objA.XPos, objB.YPos - objA.YPos);
+
+            // Horizontal right vector
+            Vector2 b = new Vector2(1, 0);
+
+            // Calculate angle (theta) in radians
+            double angle = Acos(Vector2.Dot(a, b) / (Sqrt(Pow(a.X, 2) + Pow(a.Y, 2)) * Sqrt(Pow(b.X, 2) + Pow(b.Y, 2))));
+            return angle;
         }
     }
 }

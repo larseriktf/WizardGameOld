@@ -6,6 +6,7 @@ using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using WizardGame.Interfaces;
+using static System.Math;
 
 namespace WizardGame.Classes.Entities
 {
@@ -39,14 +40,7 @@ namespace WizardGame.Classes.Entities
             {
                 CoordPoint coordPoint = (CoordPoint)EntityManager.GetSingleEntity(typeof(CoordPoint));
 
-                // 1. find vector between x and y and point.x and point.y
-                Vector2 firstVector = new Vector2(coordPoint.XPos - XPos, coordPoint.YPos - YPos);
-
-                // 2. find horizontal vector of some random length, doesn't matter, but must have origin in x and y
-                Vector2 horizontalVector = new Vector2(1, 0);
-
-                // 3. Do the required math
-                angle = Math.Atan2(horizontalVector.Y - firstVector.Y, horizontalVector.X - firstVector.X) * (Math.PI / 180);
+                angle = EntityManager.GetAngleBetweenEntitiesInRadians(this, coordPoint);
 
                 CanvasDebugger.DebugMessage("coordPoint.X: " + coordPoint.XPos + " coordPoint.Y: " + coordPoint.YPos);
 
