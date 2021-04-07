@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.UI;
+using WizardGame.Interfaces;
 
 namespace WizardGame.Classes
 {
@@ -20,10 +21,6 @@ namespace WizardGame.Classes
             ds.DrawText("Canvas Debugger", xIndent, yIndent, Colors.White);
             ds.DrawText("---------------", xIndent, yIndent * 2, Colors.White);
 
-            //for (int i = 0; i < Messages.Count(); i++)
-            //{
-            //    ds.DrawText(Messages[i], xIndent, yIndent * (i + 3), Colors.White);
-            //}
             int i = 0;
             foreach (KeyValuePair<object, string> message in DebugMessages)
             {
@@ -42,12 +39,34 @@ namespace WizardGame.Classes
             {
                 DebugMessages[obj] = message;
             }
-
-            //if (!Messages.Contains(message))
-            //{
-            //    Messages.Clear();
-            //    Messages.Add(message);
-            //}
         }
+
+
+        public static IEntityModel objA { get; set; } = null;
+        public static IEntityModel objB { get; set; } = null;
+        public static void TestDrawing(CanvasDrawingSession ds)
+        {
+            if (objA != null && objB != null)
+            {
+                ds.DrawLine(objA.XPos, objA.YPos, objB.XPos, objB.YPos, Colors.Yellow);
+                ds.DrawLine(objA.XPos, objA.YPos, objB.XPos, objA.YPos, Colors.Yellow);
+            }
+
+            
+        }
+
+        //public static double GetAngleBetweenEntitiesInRadians(IEntityModel objA, IEntityModel objB)
+        //{
+        //    // Vector between objA and objB
+        //    Vector2 a = new Vector2(objB.XPos - objA.XPos, objB.YPos - objA.YPos);
+
+        //    // Horizontal right vector
+        //    Vector2 b = new Vector2(1, 0);
+
+        //    // Calculate angle (theta) in radians
+        //    double angle = Acos(Vector2.Dot(a, b) / (Sqrt(Pow(a.X, 2) + Pow(a.Y, 2)) * Sqrt(Pow(b.X, 2) + Pow(b.Y, 2))));
+
+        //    return angle;
+        //}
     }
 }

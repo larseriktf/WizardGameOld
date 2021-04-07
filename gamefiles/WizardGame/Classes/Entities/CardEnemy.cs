@@ -35,7 +35,7 @@ namespace WizardGame.Classes.Entities
 
         public void DrawSelf(CanvasSpriteBatch spriteBatch)
         {
-            int speed = 2;
+            int speed = 1;
 
             if (EntityManager.SingleEntityExists(typeof(CoordPoint)))
             {
@@ -43,7 +43,10 @@ namespace WizardGame.Classes.Entities
 
                 angle = EntityManager.GetAngleBetweenEntitiesInRadians(this, coordPoint);
 
-                CanvasDebugger.Debug(this, "coordPoint.X: " + coordPoint.XPos + " coordPoint.Y: " + coordPoint.YPos);
+                CanvasDebugger.Debug(this, "coordPoint.X: " + coordPoint.XPos + " coordPoint.Y: " + coordPoint.YPos + "Angle: " + angle);
+
+                CanvasDebugger.objA = this;
+                CanvasDebugger.objB = coordPoint;
             }
 
             XPos += (float)(speed * Math.Cos(angle));

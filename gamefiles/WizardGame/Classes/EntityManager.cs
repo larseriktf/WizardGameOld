@@ -65,7 +65,18 @@ namespace WizardGame.Classes
             Vector2 b = new Vector2(1, 0);
 
             // Calculate angle (theta) in radians
-            double angle = Acos(Vector2.Dot(a, b) / (Sqrt(Pow(a.X, 2) + Pow(a.Y, 2)) * Sqrt(Pow(b.X, 2) + Pow(b.Y, 2))));
+            // Don't use this
+            //double angle = Acos(Vector2.Dot(a, b) / (Sqrt(Pow(a.X, 2) + Pow(a.Y, 2)) * Sqrt(Pow(b.X, 2) + Pow(b.Y, 2))));
+            // Use this
+
+            float crossProduct = a.X * b.Y - a.Y * b.X;
+
+            double angle = Atan2(Abs(crossProduct), Vector2.Dot(a, b));
+
+            if (crossProduct > 0)
+            {
+                angle = (2 * PI) - angle;
+            }
 
             return angle;
         }

@@ -144,6 +144,7 @@ namespace WizardGame
             }
 
             CanvasDebugger.DrawMessages(ds);
+            CanvasDebugger.TestDrawing(ds);
         }
     }
 }
