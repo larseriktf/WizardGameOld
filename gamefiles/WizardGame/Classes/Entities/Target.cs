@@ -9,7 +9,7 @@ using WizardGame.Interfaces;
 
 namespace WizardGame.Classes.Entities
 {
-    public class CoordPoint : IEntitySpriteModel
+    public class Target : IEntitySpriteModel
     {
         public string BitMapUri { get; set; } = "ms-appx:///Assets/Sprites/Dev/spr_point.jpg";
         public CanvasBitmap BitMap { get; set; }

@@ -121,7 +121,7 @@
     </Compile>
     <Compile Include="Classes\CanvasDebugger.cs" />
     <Compile Include="Classes\Entities\CardEnemy.cs" />
-    <Compile Include="Classes\Entities\CoordPoint.cs" />
+    <Compile Include="Classes\Entities\Target.cs" />
     <Compile Include="Classes\KeyBoard.cs" />
     <Compile Include="Classes\Entities\Player.cs" />
     <Compile Include="Classes\Layer.cs" />

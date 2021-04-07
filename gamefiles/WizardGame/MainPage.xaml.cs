@@ -41,7 +41,7 @@ namespace WizardGame
         readonly DispatcherTimer gameTimer = new DispatcherTimer();
         readonly Player player = new Player();
         readonly CardEnemy card = new CardEnemy();
-        readonly CoordPoint point = new CoordPoint();
+        readonly Target point = new Target();
 
         
         
@@ -94,7 +94,7 @@ namespace WizardGame
                 XPos = 500,
                 YPos = 500
             });
-            EntityManager.gameEntities.Add(new CoordPoint()
+            EntityManager.gameEntities.Add(new Target()
             {
                 Sprite = await SpriteSheet.LoadSpriteSheetAsync(sender.Device, point.BitMapUri, new Vector2(8, 8)),
                 XPos = 1000,

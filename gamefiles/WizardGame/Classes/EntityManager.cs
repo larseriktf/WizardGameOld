@@ -54,8 +54,6 @@ namespace WizardGame.Classes
             return null;
         }
 
-        
-
         public static double GetAngleBetweenEntitiesInRadians(IEntityModel objA, IEntityModel objB)
         {
             // Vector between objA and objB
@@ -65,12 +63,8 @@ namespace WizardGame.Classes
             Vector2 b = new Vector2(1, 0);
 
             // Calculate angle (theta) in radians
-            // Don't use this
-            //double angle = Acos(Vector2.Dot(a, b) / (Sqrt(Pow(a.X, 2) + Pow(a.Y, 2)) * Sqrt(Pow(b.X, 2) + Pow(b.Y, 2))));
-            // Use this
-
-            float crossProduct = a.X * b.Y - a.Y * b.X;
-
+            // Thanks to https://www.youtube.com/watch?v=_VuZZ9_58Wg
+            float crossProduct = GetCrossProductOfTwoVectors(a, b);
             double angle = Atan2(Abs(crossProduct), Vector2.Dot(a, b));
 
             if (crossProduct > 0)
@@ -79,6 +73,11 @@ namespace WizardGame.Classes
             }
 
             return angle;
+        }
+
+        public static float GetCrossProductOfTwoVectors(Vector2 a, Vector2 b)
+        {
+            return a.X * b.Y - a.Y * b.X; ;
         }
     }
 }

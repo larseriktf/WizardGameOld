@@ -29,24 +29,41 @@ namespace WizardGame.Classes.Entities
         public float Blue { get; set; } = 1f;
         public float Alpha { get; set; } = 1f;
 
+        private double speed = 1;
         private double angle = 0.5 * Math.PI;
         private double nextAngle = 0;
-
+        private double turningSpeed = 0.01;
+        private double lag = 10;
 
         public void DrawSelf(CanvasSpriteBatch spriteBatch)
         {
-            int speed = 1;
-
-            if (EntityManager.SingleEntityExists(typeof(CoordPoint)))
+            if (EntityManager.SingleEntityExists(typeof(Target)))
             {
-                CoordPoint coordPoint = (CoordPoint)EntityManager.GetSingleEntity(typeof(CoordPoint));
+                Target coordPoint = (Target)EntityManager.GetSingleEntity(typeof(Target));
 
                 angle = EntityManager.GetAngleBetweenEntitiesInRadians(this, coordPoint);
 
-                CanvasDebugger.Debug(this, "coordPoint.X: " + coordPoint.XPos + " coordPoint.Y: " + coordPoint.YPos + "Angle: " + angle);
+                //angle = nextAngle - lag;
+
+                //if (angle > Math.PI * 2)
+                //{
+                //    angle = 0;
+                //}
+
+                //if (nextAngle > angle)
+                //{
+                    
+                //    angle += turningSpeed;
+                //}
+                //else
+                //{
+                //    angle -= turningSpeed;
+                //}
 
                 CanvasDebugger.objA = this;
                 CanvasDebugger.objB = coordPoint;
+
+                CanvasDebugger.Debug(this, "coordPoint.X: " + coordPoint.XPos + " coordPoint.Y: " + coordPoint.YPos + "Angle: " + angle);
             }
 
             XPos += (float)(speed * Math.Cos(angle));
