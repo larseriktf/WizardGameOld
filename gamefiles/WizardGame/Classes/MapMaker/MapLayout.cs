@@ -27,22 +27,25 @@ namespace WizardGame.Classes.MapMaker
             Layout = layout;
         }
 
-        public void DrawSelf(CanvasSpriteBatch spriteBatch)
+        public void DrawSelf(CanvasDrawingSession ds)
         {
-            for (int x = 0; x < Layout.Length; x++)
+            using (var spriteBatch = ds.CreateSpriteBatch())
             {
-                for (int y = 0; y < Layout[x].Length; y++)
+                for (int x = 0; x < Layout.Length; x++)
                 {
-                    if (Layout[y][x] == 1)
+                    for (int y = 0; y < Layout[x].Length; y++)
                     {
-                        Sprite.DrawSpriteExt(
-                        spriteBatch,
-                        new Vector2(x * 128, y * 128),
-                        new Vector2(0, 0),
-                        new Vector4(1, 1, 1, 1),
-                        0,
-                        new Vector2(1, 1),
-                        0);
+                        if (Layout[y][x] == 1)
+                        {
+                            Sprite.DrawSpriteExt(
+                            spriteBatch,
+                            new Vector2(x * 128, y * 128),
+                            new Vector2(0, 0),
+                            new Vector4(1, 1, 1, 1),
+                            0,
+                            new Vector2(1, 1),
+                            0);
+                        }
                     }
                 }
             }

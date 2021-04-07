@@ -39,12 +39,6 @@ namespace WizardGame
         private List<Map> maps;
         Dictionary<string, SpriteSheet> mapSpriteSheets = new Dictionary<string, SpriteSheet>();
         readonly DispatcherTimer gameTimer = new DispatcherTimer();
-        readonly Player player = new Player();
-        readonly CardEnemy card = new CardEnemy();
-        readonly Target point = new Target();
-
-        
-        
 
         public MainPage()
         {
@@ -86,17 +80,17 @@ namespace WizardGame
         {   // Loads images and spritesheets
             EntityManager.gameEntities.Add(new Player()
             {
-                Sprite = await SpriteSheet.LoadSpriteSheetAsync(sender.Device, player.BitMapUri, new Vector2(96, 96)),
+                Sprite = await SpriteSheet.LoadSpriteSheetAsync(sender.Device, Player.BitMapUri, new Vector2(96, 96)),
             });
             EntityManager.gameEntities.Add(new CardEnemy()
             {
-                Sprite = await SpriteSheet.LoadSpriteSheetAsync(sender.Device, card.BitMapUri, new Vector2(24, 24)),
+                Sprite = await SpriteSheet.LoadSpriteSheetAsync(sender.Device, CardEnemy.BitMapUri, new Vector2(24, 24)),
                 XPos = 500,
                 YPos = 500
             });
             EntityManager.gameEntities.Add(new Target()
             {
-                Sprite = await SpriteSheet.LoadSpriteSheetAsync(sender.Device, point.BitMapUri, new Vector2(8, 8)),
+                Sprite = await SpriteSheet.LoadSpriteSheetAsync(sender.Device, Target.BitMapUri, new Vector2(8, 8)),
                 XPos = 1000,
                 YPos = 750
             });
@@ -130,16 +124,12 @@ namespace WizardGame
         {
             var ds = args.DrawingSession;
 
-            using (var spriteBatch = ds.CreateSpriteBatch())
+            // Draw gameObjects
+            foreach (Layer layer in EntityManager.Layers)
             {
-
-                // Draw gameObjects
-                foreach (Layer layer in EntityManager.Layers)
+                foreach (IEntityModel gameObject in layer.GameObjects)
                 {
-                    foreach (IEntityModel gameObject in layer.GameObjects)
-                    {
-                        gameObject.DrawSelf(spriteBatch);   
-                    }
+                    gameObject.DrawSelf(ds);   
                 }
             }
 

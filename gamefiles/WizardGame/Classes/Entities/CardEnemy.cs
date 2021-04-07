@@ -12,8 +12,7 @@ namespace WizardGame.Classes.Entities
 {
     public class CardEnemy : IEntitySpriteModel
     {
-        public string BitMapUri { get; set; } = "ms-appx:///Assets/Sprites/Entities/CardEnemy/spr_cards.png";
-        public CanvasBitmap BitMap { get; set; }
+        public static string BitMapUri { get; set; } = "ms-appx:///Assets/Sprites/Entities/CardEnemy/spr_cards.png";
         public SpriteSheet Sprite { get; set; }
 
         public float XPos { get; set; } = 0;
@@ -35,7 +34,7 @@ namespace WizardGame.Classes.Entities
         private double turningSpeed = 0.01;
         private double lag = 10;
 
-        public void DrawSelf(CanvasSpriteBatch spriteBatch)
+        public void DrawSelf(CanvasDrawingSession ds)
         {
             if (EntityManager.SingleEntityExists(typeof(Target)))
             {
@@ -69,15 +68,18 @@ namespace WizardGame.Classes.Entities
             XPos += (float)(speed * Math.Cos(angle));
             YPos += (float)(speed * Math.Sin(angle));
 
-
-            Sprite.DrawSpriteExt(
-                spriteBatch,
-                new Vector2(XPos, YPos),
-                new Vector2(ImageX, ImageY),
-                new Vector4(Red, Green, Blue, Alpha),
-                (float)(angle - 0.5 * Math.PI),
-                new Vector2(XScale, YScale),
-                0);
+            using (var spriteBatch = ds.CreateSpriteBatch())
+            {
+                Sprite.DrawSpriteExt(
+                    spriteBatch,
+                    new Vector2(XPos, YPos),
+                    new Vector2(ImageX, ImageY),
+                    new Vector4(Red, Green, Blue, Alpha),
+                    (float)(angle - 0.5 * Math.PI),
+                    new Vector2(XScale, YScale),
+                    0);
+            }
+                
         }
     }
 }

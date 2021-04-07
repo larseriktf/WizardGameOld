@@ -9,40 +9,23 @@ using WizardGame.Interfaces;
 
 namespace WizardGame.Classes.Entities
 {
-    public class Target : IEntitySpriteModel
+    public class Target : IEntityModel
     {
-        public string BitMapUri { get; set; } = "ms-appx:///Assets/Sprites/Dev/spr_point.jpg";
-        public CanvasBitmap BitMap { get; set; }
+        public static string BitMapUri { get; set; } = "ms-appx:///Assets/Sprites/Dev/spr_point.jpg";
         public SpriteSheet Sprite { get; set; }
 
         public float XPos { get; set; } = 0;
         public float YPos { get; set; } = 0;
 
-        public int ImageX { get; set; } = 0;
-        public int ImageY { get; set; } = 0;
-        public float XScale { get; set; } = 1f;
-        public float YScale { get; set; } = 1f;
-
-        public float Red { get; set; } = 1f;
-        public float Green { get; set; } = 1f;
-        public float Blue { get; set; } = 1f;
-        public float Alpha { get; set; } = 1f;
-
-        public void DrawSelf(CanvasSpriteBatch spriteBatch)
+        public void DrawSelf(CanvasDrawingSession ds)
         {
+            
             XPos = KeyBoard.PointerPosition.ToVector2().X;
             YPos = KeyBoard.PointerPosition.ToVector2().Y;
 
             CanvasDebugger.Debug(this, "Bruh");
 
-            Sprite.DrawSpriteExt(
-                spriteBatch,
-                new Vector2(XPos, YPos),
-                new Vector2(ImageX, ImageY),
-                new Vector4(Red, Green, Blue, Alpha),
-                0,
-                new Vector2(XScale, YScale),
-                0);
+            
         }
     }
 }

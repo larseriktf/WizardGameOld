@@ -10,8 +10,6 @@ namespace WizardGame.Interfaces
 {
     public interface IEntitySpriteModel : IEntityModel
     {
-        SpriteSheet Sprite { get; set; }
-
         // Coordinates
         int ImageX { get; set; }
         int ImageY { get; set; }

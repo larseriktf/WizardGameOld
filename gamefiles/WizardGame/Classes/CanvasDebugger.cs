@@ -48,8 +48,12 @@ namespace WizardGame.Classes
         {
             if (objA != null && objB != null)
             {
+                // Previous vector
                 ds.DrawLine(objA.XPos, objA.YPos, objB.XPos, objB.YPos, Colors.Yellow);
                 ds.DrawLine(objA.XPos, objA.YPos, objB.XPos, objA.YPos, Colors.Yellow);
+
+                //ds.DrawLine(objA.XPos, objA.YPos, objB.XPos, objB.YPos, Colors.Yellow);
+                //ds.DrawLine(objA.XPos, objA.YPos, );
             }
 
             

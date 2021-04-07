@@ -14,8 +14,7 @@ namespace WizardGame.Classes
     {
         public int MoveSpeed { get; set; } = 10;
 
-        public string BitMapUri { get; set; } = "ms-appx:///Assets/Sprites/Entities/Player/spr_player.png";
-        public CanvasBitmap BitMap { get; set; }
+        public static string BitMapUri { get; set; } = "ms-appx:///Assets/Sprites/Entities/Player/spr_player.png";
         public SpriteSheet Sprite { get; set; }
 
         public float XPos { get; set; } = 0;
@@ -31,7 +30,7 @@ namespace WizardGame.Classes
         public float Blue { get; set; } = 1f;
         public float Alpha { get; set; } = 1f;
 
-        public void DrawSelf(CanvasSpriteBatch spriteBatch)
+        public void DrawSelf(CanvasDrawingSession ds)
         {
             if (KeyBoard.KeyLeft)
             {
@@ -52,14 +51,17 @@ namespace WizardGame.Classes
                 YPos += MoveSpeed;
             }
 
-            Sprite.DrawSpriteExt(
-                spriteBatch,
-                new Vector2(XPos, YPos),
-                new Vector2(ImageX, ImageY),
-                new Vector4(Red, Green, Blue, Alpha),
-                0,
-                new Vector2(XScale, YScale),
-                0);
+            using (var spriteBatch = ds.CreateSpriteBatch())
+            {
+                Sprite.DrawSpriteExt(
+                    spriteBatch,
+                    new Vector2(XPos, YPos),
+                    new Vector2(ImageX, ImageY),
+                    new Vector4(Red, Green, Blue, Alpha),
+                    0,
+                    new Vector2(XScale, YScale),
+                    0);
+            }
         }
     }
 }
