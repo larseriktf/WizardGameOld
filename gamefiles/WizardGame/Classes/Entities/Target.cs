@@ -18,14 +18,7 @@ namespace WizardGame.Classes.Entities
         public float YPos { get; set; } = 0;
 
         public void DrawSelf(CanvasDrawingSession ds)
-        {
-            
-
-            XPos = KeyBoard.PointerPosition.ToVector2().X;
-            YPos = KeyBoard.PointerPosition.ToVector2().Y;
-
-            CanvasDebugger.Debug(this, "Bruh");
-
+        { 
             ds.DrawImage(BitMap, XPos - 4, YPos - 4);
         }
     }

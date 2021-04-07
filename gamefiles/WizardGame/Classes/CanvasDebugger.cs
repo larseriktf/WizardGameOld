@@ -2,9 +2,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.UI;
+using WizardGame.Classes.Entities;
 using WizardGame.Interfaces;
 
 namespace WizardGame.Classes
@@ -44,16 +46,28 @@ namespace WizardGame.Classes
 
         public static IEntityModel objA { get; set; } = null;
         public static IEntityModel objB { get; set; } = null;
+        private static int length = 128;
         public static void TestDrawing(CanvasDrawingSession ds)
         {
             if (objA != null && objB != null)
             {
                 // Previous vector
-                ds.DrawLine(objA.XPos, objA.YPos, objB.XPos, objB.YPos, Colors.Yellow);
-                ds.DrawLine(objA.XPos, objA.YPos, objB.XPos, objA.YPos, Colors.Yellow);
-
                 //ds.DrawLine(objA.XPos, objA.YPos, objB.XPos, objB.YPos, Colors.Yellow);
-                //ds.DrawLine(objA.XPos, objA.YPos, );
+                //ds.DrawLine(objA.XPos, objA.YPos, objB.XPos, objA.YPos, Colors.Yellow);
+
+                ds.DrawLine(
+                    objA.XPos,
+                    objA.YPos,
+                    objA.XPos + ((float)Math.Cos(CardEnemy.Angle) * length),
+                    objA.YPos + ((float)Math.Sin(CardEnemy.Angle) * length),
+                    Colors.Yellow);
+
+                ds.DrawLine(
+                    objA.XPos,
+                    objA.YPos,
+                    objA.XPos + ((float)Math.Cos(CardEnemy.NextAngle) * length),
+                    objA.YPos + ((float)Math.Sin(CardEnemy.NextAngle) * length),
+                    Colors.Yellow);
             }
 
             

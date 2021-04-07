@@ -30,11 +30,14 @@ namespace WizardGame.Classes.Entities
         public float Blue { get; set; } = 1f;
         public float Alpha { get; set; } = 1f;
 
-        private double speed = 1;
+        private double speed = 4;
         private double angle = 0.5 * Math.PI;
         private double nextAngle = 0;
-        private double turningSpeed = 0.01;
-        private double lag = 10;
+        private double turningSpeed = 0;
+        //Target mouse = new Target();
+
+        public static double Angle = 0;
+        public static double NextAngle = 0;
 
         public void DrawSelf(CanvasDrawingSession ds)
         {
@@ -42,33 +45,32 @@ namespace WizardGame.Classes.Entities
             {
                 Target coordPoint = (Target)EntityManager.GetSingleEntity(typeof(Target));
 
-                angle = EntityManager.GetAngleBetweenEntitiesInRadians(this, coordPoint);
+                nextAngle = EntityManager.GetAngleBetweenEntitiesInRadians(this, coordPoint);
 
-                //angle = nextAngle - lag;
+                //mouse.XPos = (float)KeyBoard.PointerPosition.X;
+                //mouse.YPos = (float)KeyBoard.PointerPosition.Y;
+                //angle = EntityManager.GetAngleBetweenEntitiesInRadians(this, mouse);
 
-                //if (angle > Math.PI * 2)
-                //{
-                //    angle = 0;
-                //}
+                turningSpeed = 0.05 * (EntityManager.GetCrossProductOfTwoVectors(
+                                    new Vector2((float)Cos(angle), (float)Sin(angle)),
+                                    new Vector2((float)Cos(nextAngle), (float)Sin(nextAngle))));
 
-                //if (nextAngle > angle)
-                //{
-                    
-                //    angle += turningSpeed;
-                //}
-                //else
-                //{
-                //    angle -= turningSpeed;
-                //}
+                angle += turningSpeed;
+
+                Angle = angle;
+                
+                
+                
+                
+                NextAngle = nextAngle;
 
                 CanvasDebugger.objA = this;
                 CanvasDebugger.objB = coordPoint;
-
-                CanvasDebugger.Debug(this, "coordPoint.X: " + coordPoint.XPos + " coordPoint.Y: " + coordPoint.YPos + "Angle: " + angle);
+                CanvasDebugger.Debug(this, "Angle: " + angle + " NextAngle: " + nextAngle);
             }
 
-            XPos += (float)(speed * Math.Cos(angle));
-            YPos += (float)(speed * Math.Sin(angle));
+            XPos += (float)(speed * Cos(angle));
+            YPos += (float)(speed * Sin(angle));
 
             using (var spriteBatch = ds.CreateSpriteBatch())
             {
