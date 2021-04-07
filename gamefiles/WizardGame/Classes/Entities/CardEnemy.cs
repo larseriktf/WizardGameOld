@@ -30,11 +30,12 @@ namespace WizardGame.Classes.Entities
         public float Blue { get; set; } = 1f;
         public float Alpha { get; set; } = 1f;
 
-        private double speed = 4;
+        private double speed = 8;
         private double angle = 0.5 * Math.PI;
         private double nextAngle = 0;
         private double turningSpeed = 0;
-        //Target mouse = new Target();
+        private double wiggleRoom = 0.5;
+        private double distanceToPoint = 0;
 
         public static double Angle = 0;
         public static double NextAngle = 0;
@@ -47,26 +48,27 @@ namespace WizardGame.Classes.Entities
 
                 nextAngle = EntityManager.GetAngleBetweenEntitiesInRadians(this, coordPoint);
 
-                //mouse.XPos = (float)KeyBoard.PointerPosition.X;
-                //mouse.YPos = (float)KeyBoard.PointerPosition.Y;
-                //angle = EntityManager.GetAngleBetweenEntitiesInRadians(this, mouse);
-
                 turningSpeed = 0.05 * (EntityManager.GetCrossProductOfTwoVectors(
                                     new Vector2((float)Cos(angle), (float)Sin(angle)),
                                     new Vector2((float)Cos(nextAngle), (float)Sin(nextAngle))));
 
-                angle += turningSpeed;
+                angle += turningSpeed + Sin(wiggleRoom) * 0.025;
 
                 Angle = angle;
-                
-                
-                
+
+
+                wiggleRoom += 0.08;
                 
                 NextAngle = nextAngle;
 
+                distanceToPoint = EntityManager.GetDistanceBetweenEntities(this, coordPoint);
+
                 CanvasDebugger.objA = this;
                 CanvasDebugger.objB = coordPoint;
-                CanvasDebugger.Debug(this, "Angle: " + angle + " NextAngle: " + nextAngle);
+                CanvasDebugger.Debug(this, "Angle: " + angle
+                                    + "\nNextAngle: " + nextAngle
+                                    + "\nWiggleRoom: " + Sin(wiggleRoom)
+                                    + "\nDistance: " + distanceToPoint);
             }
 
             XPos += (float)(speed * Cos(angle));

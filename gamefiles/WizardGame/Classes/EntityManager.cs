@@ -79,5 +79,14 @@ namespace WizardGame.Classes
         {
             return a.X * b.Y - a.Y * b.X; ;
         }
+
+        public static double GetDistanceBetweenEntities(IEntityModel objA, IEntityModel objB)
+        {
+            double x = objB.XPos - objA.XPos;
+            double y = objB.YPos - objA.YPos;
+
+            double distance = Sqrt(Pow(x, 2) + Pow(y, 2));
+            return distance;
+        }
     }
 }
