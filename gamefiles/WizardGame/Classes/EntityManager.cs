@@ -58,8 +58,6 @@ namespace WizardGame.Classes
 
         public static double GetAngleBetweenEntitiesInRadians(IEntityModel objA, IEntityModel objB)
         {
-            CanvasDebugger.DebugMessage message = new CanvasDebugger.DebugMessage();
-
             // Vector between objA and objB
             Vector2 a = new Vector2(objB.XPos - objA.XPos, objB.YPos - objA.YPos);
 
@@ -68,11 +66,8 @@ namespace WizardGame.Classes
 
             // Calculate angle (theta) in radians
             double angle = Acos(Vector2.Dot(a, b) / (Sqrt(Pow(a.X, 2) + Pow(a.Y, 2)) * Sqrt(Pow(b.X, 2) + Pow(b.Y, 2))));
+
             return angle;
-
-            message.Message = "Angle: " + angle;
-
-            CanvasDebugger.Debug(message);
         }
     }
 }

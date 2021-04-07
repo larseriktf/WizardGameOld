@@ -10,29 +10,44 @@ namespace WizardGame.Classes
 {
     public static class CanvasDebugger
     {
-        private static int xIndent = 25;
-        private static int yIndent = 25;
-        public static List<DebugMessage> Messages { get; set; } = new List<DebugMessage>();
+        private static readonly int xIndent = 25;
+        private static readonly int yIndent = 25;
+        public static List<string> Messages { get; set; } = new List<string>();
+        public static Dictionary<object, string> DebugMessages { get; set; } = new Dictionary<object, string>();
 
         public static void DrawMessages(CanvasDrawingSession ds)
         {
             ds.DrawText("Canvas Debugger", xIndent, yIndent, Colors.White);
             ds.DrawText("---------------", xIndent, yIndent * 2, Colors.White);
 
-            for (int i = 0; i < Messages.Count(); i++)
+            //for (int i = 0; i < Messages.Count(); i++)
+            //{
+            //    ds.DrawText(Messages[i], xIndent, yIndent * (i + 3), Colors.White);
+            //}
+            int i = 0;
+            foreach (KeyValuePair<object, string> message in DebugMessages)
             {
-                ds.DrawText(Messages[i].Message, xIndent, yIndent * (i + 3), Colors.White);
+                ds.DrawText(message.Value, xIndent, yIndent * (i + 3), Colors.White);
+                i++;
             }
         }
 
-        public static void Debug(DebugMessage message)
+        public static void Debug(object obj, string message)
         {
-            if (!Messages.Contains(message)) Messages.Add(message);
-        }
+            if (!DebugMessages.ContainsKey(obj))
+            {
+                DebugMessages.Add(obj, message);
+            }
+            else
+            {
+                DebugMessages[obj] = message;
+            }
 
-        public class DebugMessage
-        {
-            public string Message { get; set; }
+            //if (!Messages.Contains(message))
+            //{
+            //    Messages.Clear();
+            //    Messages.Add(message);
+            //}
         }
     }
 }

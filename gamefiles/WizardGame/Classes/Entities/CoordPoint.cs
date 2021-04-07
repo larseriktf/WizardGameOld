@@ -33,6 +33,8 @@ namespace WizardGame.Classes.Entities
             XPos = KeyBoard.PointerPosition.ToVector2().X;
             YPos = KeyBoard.PointerPosition.ToVector2().Y;
 
+            CanvasDebugger.Debug(this, "Bruh");
+
             Sprite.DrawSpriteExt(
                 spriteBatch,
                 new Vector2(XPos, YPos),
