@@ -12,7 +12,9 @@ namespace WizardGame.Classes.Entities
 {
     public class CardEnemy : IEntitySpriteModel
     {
-        public static string BitMapUri { get; set; } = "ms-appx:///Assets/Sprites/Entities/CardEnemy/spr_cards.png";
+        public static readonly string bitMapUri = "ms-appx:///Assets/Sprites/Entities/CardEnemy/spr_cards.png";
+        public static readonly int spriteWidth = 24;
+        public static readonly int spriteHeight = 24;
         public SpriteSheet Sprite { get; set; }
 
         public float XPos { get; set; } = 0;

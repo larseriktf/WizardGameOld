@@ -80,17 +80,18 @@ namespace WizardGame
         {   // Loads images and spritesheets
             EntityManager.gameEntities.Add(new Player()
             {
-                Sprite = await SpriteSheet.LoadSpriteSheetAsync(sender.Device, Player.BitMapUri, new Vector2(96, 96)),
+                Sprite = await SpriteSheet.LoadSpriteSheetAsync(sender.Device, Player.bitMapUri, new Vector2(Player.spriteWidth, Player.spriteHeight)),
             });
             EntityManager.gameEntities.Add(new CardEnemy()
             {
-                Sprite = await SpriteSheet.LoadSpriteSheetAsync(sender.Device, CardEnemy.BitMapUri, new Vector2(24, 24)),
+                Sprite = await SpriteSheet.LoadSpriteSheetAsync(sender.Device, CardEnemy.bitMapUri, new Vector2(CardEnemy.spriteWidth, CardEnemy.spriteHeight)),
                 XPos = 500,
                 YPos = 500
             });
             EntityManager.gameEntities.Add(new Target()
             {
-                Sprite = await SpriteSheet.LoadSpriteSheetAsync(sender.Device, Target.BitMapUri, new Vector2(8, 8)),
+                //BitMap = await SpriteSheet.LoadSpriteSheetAsync(sender.Device, Target.BitMapUri, new Vector2(8, 8)),
+                BitMap = await CanvasBitmap.LoadAsync(sender.Device, new Uri(Target.bitMapUri)),
                 XPos = 1000,
                 YPos = 750
             });

@@ -14,7 +14,9 @@ namespace WizardGame.Classes
     {
         public int MoveSpeed { get; set; } = 10;
 
-        public static string BitMapUri { get; set; } = "ms-appx:///Assets/Sprites/Entities/Player/spr_player.png";
+        public static readonly string bitMapUri = "ms-appx:///Assets/Sprites/Entities/Player/spr_player.png";
+        public static readonly int spriteWidth = 96;
+        public static readonly int spriteHeight = 96;
         public SpriteSheet Sprite { get; set; }
 
         public float XPos { get; set; } = 0;
