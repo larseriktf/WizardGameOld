@@ -36,6 +36,7 @@ namespace WizardGame.Classes.Entities
         private double turningSpeed = 0;
         private double wiggleRoom = 0.5;
         private double distanceToPoint = 0;
+        private double amplifier = 0.025;
 
         public static double Angle = 0;
         public static double NextAngle = 0;
@@ -62,6 +63,20 @@ namespace WizardGame.Classes.Entities
                 NextAngle = nextAngle;
 
                 distanceToPoint = EntityManager.GetDistanceBetweenEntities(this, coordPoint);
+
+                //if (distanceToPoint < 300)
+                //{
+                //    speed = 8 - 8 * (distanceToPoint / 300);
+                //}
+                //else
+                //{
+                //    speed = 8;
+                //}
+
+                if (distanceToPoint < 300)
+                {
+                    amplifier = 0.5 * (distanceToPoint / 300);
+                }
 
                 CanvasDebugger.objA = this;
                 CanvasDebugger.objB = coordPoint;
