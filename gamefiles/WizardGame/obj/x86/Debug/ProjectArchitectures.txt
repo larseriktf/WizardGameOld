@@ -1,1 +1,1 @@
-C:\Users\lars erik\Documents\wizardgame\gamefiles\WizardGame\WizardGame.csproj;x86
+C:\Users\47917\Documents\dot_NET\WizardGame\gamefiles\WizardGame\WizardGame.csproj;x86

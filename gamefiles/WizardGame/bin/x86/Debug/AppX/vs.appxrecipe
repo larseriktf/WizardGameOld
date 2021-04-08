@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <Machine>LEF</Machine>
-    <WindowsUser>lef</WindowsUser>
+    <Machine>LAPTOP-EPBOLB7S</Machine>
+    <WindowsUser>47917</WindowsUser>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetOsVersion>10.0</TargetOsVersion>
     <TargetOsDescription>Windows 10.0</TargetOsDescription>
@@ -10,7 +10,7 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>1ae19a5b-c9e6-4134-b41d-17476623687d</PackageIdentityName>
     <PackageIdentityPublisher>CN=lars erik</PackageIdentityPublisher>
-    <IntermediateOutputPath>C:\Users\lars erik\Documents\wizardgame\gamefiles\WizardGame\obj\x86\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\47917\Documents\dot_NET\WizardGame\gamefiles\WizardGame\obj\x86\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType>
     </RemoteDeploymentType>
     <PackageRegistrationPath>
@@ -18,7 +18,7 @@
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>C:\Users\lars erik\Documents\wizardgame\gamefiles\WizardGame\bin\x86\Debug\AppX</LayoutDir>
+    <LayoutDir>C:\Users\47917\Documents\dot_NET\WizardGame\gamefiles\WizardGame\bin\x86\Debug\AppX</LayoutDir>
     <RegisteredManifestChecksum>14CCB2050BAC838FE461B32DD8CF3037877F14BEB792F9C3462C88A692CA2779</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>1ae19a5b-c9e6-4134-b41d-17476623687d_1.0.0.0_x86__0xr9e3rcrqjs6</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>1ae19a5b-c9e6-4134-b41d-17476623687d_0xr9e3rcrqjs6!App</RegisteredUserModeAppID>
@@ -27,26 +27,26 @@
     <RegisteredVersion>1.0.0.0</RegisteredVersion>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\lars erik\Documents\wizardgame\gamefiles\WizardGame\bin\x86\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\47917\Documents\dot_NET\WizardGame\gamefiles\WizardGame\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2021-04-08T06:51:39.592</Modified>
+      <Modified>2021-04-08T08:13:08.087</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\lars erik\Documents\wizardgame\gamefiles\WizardGame\bin\x86\Debug\WizardGame.exe">
+    <AppxPackagedFile Include="C:\Users\47917\Documents\dot_NET\WizardGame\gamefiles\WizardGame\bin\x86\Debug\WizardGame.exe">
       <PackagePath>entrypoint\WizardGame.exe</PackagePath>
-      <Modified>2021-04-08T06:51:38.817</Modified>
+      <Modified>2021-04-08T08:13:06.902</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\lars erik\.nuget\packages\runtime.win10-x86.microsoft.netcore.universalwindowsplatform\6.2.12\runtimes\win10-x86\lib\uap10.0.15138\System.Runtime.dll">
+    <AppxPackagedFile Include="C:\Users\47917\.nuget\packages\runtime.win10-x86.microsoft.netcore.universalwindowsplatform\6.2.12\runtimes\win10-x86\lib\uap10.0.15138\System.Runtime.dll">
       <PackagePath>System.Runtime.dll</PackagePath>
       <Modified>2021-02-05T00:15:46.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\lars erik\.nuget\packages\win2d.uwp\1.25.0\runtimes\win10-x86\native\Microsoft.Graphics.Canvas.dll">
+    <AppxPackagedFile Include="C:\Users\47917\.nuget\packages\win2d.uwp\1.25.0\runtimes\win10-x86\native\Microsoft.Graphics.Canvas.dll">
       <PackagePath>Microsoft.Graphics.Canvas.dll</PackagePath>
       <Modified>2020-04-02T17:44:36.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\lars erik\.nuget\packages\win2d.uwp\1.25.0\lib\uap10.0\Microsoft.Graphics.Canvas.winmd">
+    <AppxPackagedFile Include="C:\Users\47917\.nuget\packages\win2d.uwp\1.25.0\lib\uap10.0\Microsoft.Graphics.Canvas.winmd">
       <PackagePath>Microsoft.Graphics.Canvas.winmd</PackagePath>
       <Modified>2020-04-02T17:44:36.000</Modified>
     </AppxPackagedFile>
@@ -54,141 +54,141 @@
       <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
       <Modified>2019-03-18T17:36:56.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\lars erik\Documents\wizardgame\gamefiles\WizardGame\Assets\Sprites\Dev\spr_dev.jpg">
+    <AppxPackagedFile Include="C:\Users\47917\Documents\dot_NET\WizardGame\gamefiles\WizardGame\Assets\Sprites\Dev\spr_dev.jpg">
       <PackagePath>Assets\Sprites\Dev\spr_dev.jpg</PackagePath>
-      <Modified>2021-03-23T08:27:26.525</Modified>
+      <Modified>2021-03-29T16:49:32.684</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\lars erik\Documents\wizardgame\gamefiles\WizardGame\Assets\Sprites\Dev\spr_point.jpg">
+    <AppxPackagedFile Include="C:\Users\47917\Documents\dot_NET\WizardGame\gamefiles\WizardGame\Assets\Sprites\Dev\spr_point.jpg">
       <PackagePath>Assets\Sprites\Dev\spr_point.jpg</PackagePath>
-      <Modified>2021-04-06T09:35:00.440</Modified>
+      <Modified>2021-04-08T07:10:19.056</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\lars erik\Documents\wizardgame\gamefiles\WizardGame\Assets\Sprites\Entities\CardEnemy\spr_cards.png">
+    <AppxPackagedFile Include="C:\Users\47917\Documents\dot_NET\WizardGame\gamefiles\WizardGame\Assets\Sprites\Entities\CardEnemy\spr_cards.png">
       <PackagePath>Assets\Sprites\Entities\CardEnemy\spr_cards.png</PackagePath>
-      <Modified>2021-04-06T09:35:00.442</Modified>
+      <Modified>2021-04-08T07:10:19.057</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\lars erik\Documents\wizardgame\gamefiles\WizardGame\Assets\Sprites\Entities\Player\spr_player_idle.png">
+    <AppxPackagedFile Include="C:\Users\47917\Documents\dot_NET\WizardGame\gamefiles\WizardGame\Assets\Sprites\Entities\Player\spr_player_idle.png">
       <PackagePath>Assets\Sprites\Entities\Player\spr_player_idle.png</PackagePath>
-      <Modified>2021-04-06T09:35:00.444</Modified>
+      <Modified>2021-04-08T07:10:19.059</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\lars erik\Documents\wizardgame\gamefiles\WizardGame\Assets\Sprites\Entities\Player\spr_player.png">
+    <AppxPackagedFile Include="C:\Users\47917\Documents\dot_NET\WizardGame\gamefiles\WizardGame\Assets\Sprites\Entities\Player\spr_player.png">
       <PackagePath>Assets\Sprites\Entities\Player\spr_player.png</PackagePath>
-      <Modified>2021-04-06T09:35:00.443</Modified>
+      <Modified>2021-04-08T07:10:19.058</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\lars erik\Documents\wizardgame\gamefiles\WizardGame\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\47917\Documents\dot_NET\WizardGame\gamefiles\WizardGame\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
-      <Modified>2021-01-11T10:06:17.914</Modified>
+      <Modified>2021-03-13T14:40:36.565</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\lars erik\Documents\wizardgame\gamefiles\WizardGame\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\47917\Documents\dot_NET\WizardGame\gamefiles\WizardGame\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2021-01-11T10:06:17.917</Modified>
+      <Modified>2021-03-13T14:40:36.566</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\lars erik\Documents\wizardgame\gamefiles\WizardGame\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\47917\Documents\dot_NET\WizardGame\gamefiles\WizardGame\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2021-01-11T10:06:17.917</Modified>
+      <Modified>2021-03-13T14:40:36.571</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\lars erik\Documents\wizardgame\gamefiles\WizardGame\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\47917\Documents\dot_NET\WizardGame\gamefiles\WizardGame\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2021-01-11T10:06:17.918</Modified>
+      <Modified>2021-03-13T14:40:36.572</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\lars erik\Documents\wizardgame\gamefiles\WizardGame\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="C:\Users\47917\Documents\dot_NET\WizardGame\gamefiles\WizardGame\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2021-01-11T10:06:17.919</Modified>
+      <Modified>2021-03-13T14:40:36.573</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\lars erik\Documents\wizardgame\gamefiles\WizardGame\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="C:\Users\47917\Documents\dot_NET\WizardGame\gamefiles\WizardGame\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2021-01-11T10:06:17.919</Modified>
+      <Modified>2021-03-13T14:40:36.574</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\lars erik\Documents\wizardgame\gamefiles\WizardGame\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\47917\Documents\dot_NET\WizardGame\gamefiles\WizardGame\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2021-01-11T10:06:17.920</Modified>
+      <Modified>2021-03-13T14:40:36.576</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\lars erik\Documents\wizardgame\gamefiles\WizardGame\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="C:\Users\47917\Documents\dot_NET\WizardGame\gamefiles\WizardGame\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
-      <Modified>2021-02-23T09:23:10.217</Modified>
+      <Modified>2021-03-13T14:40:36.590</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\lars erik\Documents\wizardgame\gamefiles\WizardGame\bin\x86\Debug\WizardGame.xr.xml">
+    <AppxPackagedFile Include="C:\Users\47917\Documents\dot_NET\WizardGame\gamefiles\WizardGame\bin\x86\Debug\WizardGame.xr.xml">
       <PackagePath>WizardGame.xr.xml</PackagePath>
-      <Modified>2021-03-21T07:26:13.192</Modified>
+      <Modified>2021-03-29T16:49:32.794</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\lars erik\Documents\wizardgame\gamefiles\WizardGame\bin\x86\Debug\App.xbf">
+    <AppxPackagedFile Include="C:\Users\47917\Documents\dot_NET\WizardGame\gamefiles\WizardGame\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2021-04-08T06:51:38.716</Modified>
+      <Modified>2021-04-08T08:13:06.677</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\lars erik\Documents\wizardgame\gamefiles\WizardGame\bin\x86\Debug\MainPage.xbf">
+    <AppxPackagedFile Include="C:\Users\47917\Documents\dot_NET\WizardGame\gamefiles\WizardGame\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2021-04-08T06:51:38.717</Modified>
+      <Modified>2021-04-08T08:13:06.679</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.18362.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
       <Modified>2019-03-18T16:33:42.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\lars erik\Documents\wizardgame\gamefiles\WizardGame\bin\x86\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\47917\Documents\dot_NET\WizardGame\gamefiles\WizardGame\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2021-04-07T12:44:26.940</Modified>
+      <Modified>2021-04-08T08:12:12.588</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\lars erik\Documents\wizardgame\gamefiles\WizardGame\bin\x86\Debug\Core\WizardGame.exe">
+    <AppxPackagedFile Include="C:\Users\47917\Documents\dot_NET\WizardGame\gamefiles\WizardGame\bin\x86\Debug\Core\WizardGame.exe">
       <PackagePath>WizardGame.exe</PackagePath>
-      <Modified>2021-04-08T06:51:39.566</Modified>
+      <Modified>2021-04-08T08:13:08.035</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
-    <ResolvedSDKReference Include="C:\Users\lars erik\.nuget\packages\runtime.win10-x86.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx">
+    <ResolvedSDKReference Include="C:\Users\47917\.nuget\packages\runtime.win10-x86.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx">
       <Name>Microsoft.NET.CoreRuntime.2.2</Name>
       <Version>2.2.29713.2</Version>
       <Architecture>x86</Architecture>
       <FrameworkIdentity>Name = Microsoft.NET.CoreRuntime.2.2, MinVersion = 2.2.29713.2, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
-      <AppxLocation>C:\Users\lars erik\.nuget\packages\runtime.win10-x86.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx</AppxLocation>
+      <AppxLocation>C:\Users\47917\.nuget\packages\runtime.win10-x86.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx</AppxLocation>
       <MoreInfo>
       </MoreInfo>
     </ResolvedSDKReference>
-    <ResolvedSDKReference Include="C:\Users\lars erik\.nuget\packages\runtime.win10-x64.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx">
+    <ResolvedSDKReference Include="C:\Users\47917\.nuget\packages\runtime.win10-x64.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx">
       <Name>Microsoft.NET.CoreRuntime.2.2</Name>
       <Version>2.2.29713.2</Version>
       <Architecture>x64</Architecture>
       <FrameworkIdentity>Name = Microsoft.NET.CoreRuntime.2.2, MinVersion = 2.2.29713.2, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
-      <AppxLocation>C:\Users\lars erik\.nuget\packages\runtime.win10-x64.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx</AppxLocation>
+      <AppxLocation>C:\Users\47917\.nuget\packages\runtime.win10-x64.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx</AppxLocation>
       <MoreInfo>
       </MoreInfo>
     </ResolvedSDKReference>
-    <ResolvedSDKReference Include="C:\Users\lars erik\.nuget\packages\runtime.win10-arm.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx">
+    <ResolvedSDKReference Include="C:\Users\47917\.nuget\packages\runtime.win10-arm.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx">
       <Name>Microsoft.NET.CoreRuntime.2.2</Name>
       <Version>2.2.29713.2</Version>
       <Architecture>arm</Architecture>
       <FrameworkIdentity>Name = Microsoft.NET.CoreRuntime.2.2, MinVersion = 2.2.29713.2, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
-      <AppxLocation>C:\Users\lars erik\.nuget\packages\runtime.win10-arm.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx</AppxLocation>
+      <AppxLocation>C:\Users\47917\.nuget\packages\runtime.win10-arm.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx</AppxLocation>
       <MoreInfo>
       </MoreInfo>
     </ResolvedSDKReference>
-    <ResolvedSDKReference Include="C:\Users\lars erik\.nuget\packages\runtime.win10-x86.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx">
+    <ResolvedSDKReference Include="C:\Users\47917\.nuget\packages\runtime.win10-x86.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx">
       <Name>Microsoft.NET.CoreFramework.Debug.2.2</Name>
       <Version>2.2.29301.2</Version>
       <Architecture>x86</Architecture>
       <FrameworkIdentity>Name = Microsoft.NET.CoreFramework.Debug.2.2, MinVersion = 2.2.29301.2, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
-      <AppxLocation>C:\Users\lars erik\.nuget\packages\runtime.win10-x86.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx</AppxLocation>
+      <AppxLocation>C:\Users\47917\.nuget\packages\runtime.win10-x86.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx</AppxLocation>
       <MoreInfo>
       </MoreInfo>
     </ResolvedSDKReference>
-    <ResolvedSDKReference Include="C:\Users\lars erik\.nuget\packages\runtime.win10-x64.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx">
+    <ResolvedSDKReference Include="C:\Users\47917\.nuget\packages\runtime.win10-x64.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx">
       <Name>Microsoft.NET.CoreFramework.Debug.2.2</Name>
       <Version>2.2.29301.2</Version>
       <Architecture>x64</Architecture>
       <FrameworkIdentity>Name = Microsoft.NET.CoreFramework.Debug.2.2, MinVersion = 2.2.29301.2, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
-      <AppxLocation>C:\Users\lars erik\.nuget\packages\runtime.win10-x64.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx</AppxLocation>
+      <AppxLocation>C:\Users\47917\.nuget\packages\runtime.win10-x64.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx</AppxLocation>
       <MoreInfo>
       </MoreInfo>
     </ResolvedSDKReference>
-    <ResolvedSDKReference Include="C:\Users\lars erik\.nuget\packages\runtime.win10-arm.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx">
+    <ResolvedSDKReference Include="C:\Users\47917\.nuget\packages\runtime.win10-arm.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx">
       <Name>Microsoft.NET.CoreFramework.Debug.2.2</Name>
       <Version>2.2.29301.2</Version>
       <Architecture>arm</Architecture>
       <FrameworkIdentity>Name = Microsoft.NET.CoreFramework.Debug.2.2, MinVersion = 2.2.29301.2, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
-      <AppxLocation>C:\Users\lars erik\.nuget\packages\runtime.win10-arm.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx</AppxLocation>
+      <AppxLocation>C:\Users\47917\.nuget\packages\runtime.win10-arm.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx</AppxLocation>
       <MoreInfo>
       </MoreInfo>
     </ResolvedSDKReference>

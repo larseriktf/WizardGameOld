@@ -1,29 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lars erik\\Documents\\wizardgame\\gamefiles\\WizardGame\\WizardGame.csproj": {}
+    "C:\\Users\\47917\\Documents\\dot_NET\\WizardGame\\gamefiles\\WizardGame\\WizardGame.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lars erik\\Documents\\wizardgame\\gamefiles\\WizardGame\\WizardGame.csproj": {
+    "C:\\Users\\47917\\Documents\\dot_NET\\WizardGame\\gamefiles\\WizardGame\\WizardGame.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lars erik\\Documents\\wizardgame\\gamefiles\\WizardGame\\WizardGame.csproj",
+        "projectUniqueName": "C:\\Users\\47917\\Documents\\dot_NET\\WizardGame\\gamefiles\\WizardGame\\WizardGame.csproj",
         "projectName": "WizardGame",
-        "projectPath": "C:\\Users\\lars erik\\Documents\\wizardgame\\gamefiles\\WizardGame\\WizardGame.csproj",
-        "packagesPath": "C:\\Users\\lars erik\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lars erik\\Documents\\wizardgame\\gamefiles\\WizardGame\\obj\\",
+        "projectPath": "C:\\Users\\47917\\Documents\\dot_NET\\WizardGame\\gamefiles\\WizardGame\\WizardGame.csproj",
+        "packagesPath": "C:\\Users\\47917\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\47917\\Documents\\dot_NET\\WizardGame\\gamefiles\\WizardGame\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\lars erik\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\47917\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "uap10.0.17763"
