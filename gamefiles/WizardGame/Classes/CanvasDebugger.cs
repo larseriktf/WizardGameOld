@@ -44,8 +44,8 @@ namespace WizardGame.Classes
         }
 
 
-        public static IEntityModel objA { get; set; } = null;
-        public static IEntityModel objB { get; set; } = null;
+        public static Entity objA { get; set; } = null;
+        public static Entity objB { get; set; } = null;
         private static int length = 128;
         public static void TestDrawing(CanvasDrawingSession ds)
         {

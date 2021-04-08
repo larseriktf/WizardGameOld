@@ -11,7 +11,7 @@ namespace WizardGame.Classes
     public class Layer
     {
         public string Name { get; set; }
-        public List<IEntityModel> GameObjects { get; set; } = new List<IEntityModel>();
+        public List<Entity> GameObjects { get; set; } = new List<Entity>();
 
         public Layer(string name)
         {

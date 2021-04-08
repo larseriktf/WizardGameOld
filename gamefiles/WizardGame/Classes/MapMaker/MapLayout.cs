@@ -5,21 +5,14 @@ using System.Linq;
 using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
+using WizardGame.Classes.Entities;
 using WizardGame.Interfaces;
 
 namespace WizardGame.Classes.MapMaker
 {
-    public class MapLayout : IEntityModel
+    public class MapLayout : SpriteEntity
     {
         public int[][] Layout { get; set; } // multidimensional array
-
-        public CanvasBitmap BitMap { get; set; }
-        public SpriteSheet Sprite { get; set; }
-
-        public float XPos { get; set; } = 0;
-        public float YPos { get; set; } = 0;
-
-        public string BitMapUri { get; set; }
 
         public MapLayout(SpriteSheet spriteSheet, int[][] layout)
         {

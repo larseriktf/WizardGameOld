@@ -78,28 +78,32 @@ namespace WizardGame
 
         async Task LoadResourcesAsync(CanvasAnimatedControl sender)
         {   // Loads images and spritesheets
-            EntityManager.gameEntities.Add(new Player()
-            {
-                Sprite = await SpriteSheet.LoadSpriteSheetAsync(sender.Device, Player.bitMapUri, new Vector2(Player.spriteWidth, Player.spriteHeight)),
-            });
+            Player.Sprite = await SpriteSheet.LoadSpriteSheetAsync(sender.Device, Player.bitMapUri, new Vector2(Player.spriteWidth, Player.spriteHeight));
+            CardEnemy.Sprite = await SpriteSheet.LoadSpriteSheetAsync(sender.Device, CardEnemy.bitMapUri, new Vector2(CardEnemy.spriteWidth, CardEnemy.spriteHeight));
+            Target.BitMap = await CanvasBitmap.LoadAsync(sender.Device, new Uri(Target.bitMapUri));
+
+            EntityManager.gameEntities.Add(new Player());
             EntityManager.gameEntities.Add(new CardEnemy()
             {
-                Sprite = await SpriteSheet.LoadSpriteSheetAsync(sender.Device, CardEnemy.bitMapUri, new Vector2(CardEnemy.spriteWidth, CardEnemy.spriteHeight)),
                 XPos = 500,
                 YPos = 500
             });
-            //EntityManager.gameEntities.Add(new CardEnemy()
-            //{
-            //    Sprite = await SpriteSheet.LoadSpriteSheetAsync(sender.Device, CardEnemy.bitMapUri, new Vector2(CardEnemy.spriteWidth, CardEnemy.spriteHeight)),
-            //    XPos = 1000,
-            //    YPos = 500
-            //});
+            EntityManager.gameEntities.Add(new CardEnemy()
+            {
+                XPos = 600,
+                YPos = 500
+            });
+            EntityManager.gameEntities.Add(new CardEnemy()
+            {
+                XPos = 700,
+                YPos = 500
+            });
+
             EntityManager.gameEntities.Add(new Target()
             {
-                BitMap = await CanvasBitmap.LoadAsync(sender.Device, new Uri(Target.bitMapUri)),
                 XPos = 1000,
                 YPos = 750
-            });
+            }); ;
 
             mapSpriteSheets.Add(
                 "dev",
@@ -110,12 +114,12 @@ namespace WizardGame
 
             // @TODO: Make this more flexible, so it allowes all maps to be added / Or just current playing map to be added
             Layer layer0 = new Layer("layer0");
-            layer0.GameObjects.Add(maps[0].MapLayouts[0]);
+            //layer0.GameObjects.Add(maps[0].MapLayouts[0]);
 
             // Add stuff
             Layer layer1 = new Layer("layer1");
 
-            foreach (IEntityModel entity in EntityManager.gameEntities)
+            foreach (Entity entity in EntityManager.gameEntities)
             {
                 layer1.GameObjects.Add(entity);
             }
@@ -133,7 +137,7 @@ namespace WizardGame
             // Draw gameObjects
             foreach (Layer layer in EntityManager.Layers)
             {
-                foreach (IEntityModel gameObject in layer.GameObjects)
+                foreach (IDrawable gameObject in layer.GameObjects)
                 {
                     gameObject.DrawSelf(ds);   
                 }

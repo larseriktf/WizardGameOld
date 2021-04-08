@@ -120,7 +120,10 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Classes\CanvasDebugger.cs" />
+    <Compile Include="Classes\Entities\BitMapEntity.cs" />
     <Compile Include="Classes\Entities\CardEnemy.cs" />
+    <Compile Include="Classes\Entities\Entity.cs" />
+    <Compile Include="Classes\Entities\SpriteEntity.cs" />
     <Compile Include="Classes\Entities\Target.cs" />
     <Compile Include="Classes\KeyBoard.cs" />
     <Compile Include="Classes\Entities\Player.cs" />
@@ -130,8 +133,7 @@
     <Compile Include="Classes\MapMaker\Map.cs" />
     <Compile Include="Classes\MapMaker\MapEditor.cs" />
     <Compile Include="Classes\SpriteSheet.cs" />
-    <Compile Include="Interfaces\IEntityModel.cs" />
-    <Compile Include="Interfaces\IEntitySpriteModel.cs" />
+    <Compile Include="Interfaces\IDrawable.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>

@@ -9,17 +9,14 @@ using WizardGame.Interfaces;
 
 namespace WizardGame.Classes.Entities
 {
-    public class Target : IEntityModel
+    public class Target : BitMapEntity, IDrawable
     {
-        public static readonly string bitMapUri = "ms-appx:///Assets/Sprites/Dev/spr_point.jpg";
-        public CanvasBitmap BitMap { get; set; }
-
-        public float XPos { get; set; } = 0;
-        public float YPos { get; set; } = 0;
-
         public void DrawSelf(CanvasDrawingSession ds)
         { 
-            ds.DrawImage(BitMap, XPos - 4, YPos - 4);
+            if (BitMap != null)
+            {
+                ds.DrawImage(BitMap, XPos - 4, YPos - 4);
+            }
         }
     }
 }

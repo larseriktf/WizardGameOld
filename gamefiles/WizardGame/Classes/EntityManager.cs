@@ -14,11 +14,11 @@ namespace WizardGame.Classes
     {
         public static List<Layer> Layers { get; set; } = new List<Layer>();
 
-        public static List<IEntityModel> gameEntities = new List<IEntityModel>();
+        public static List<Entity> gameEntities = new List<Entity>();
 
         public static bool EntityExists(Type className)
         {   // Runs through list of entities and checks if they are of type className
-            foreach (IEntityModel entity in gameEntities)
+            foreach (Entity entity in gameEntities)
             {
                 if (entity.GetType().Equals(className))
                 {   
@@ -31,7 +31,7 @@ namespace WizardGame.Classes
         public static bool SingleEntityExists(Type className)
         {
             int occurrences = 0;
-            foreach (IEntityModel entity in gameEntities)
+            foreach (Entity entity in gameEntities)
             {
                 if (entity.GetType().Equals(className))
                 {
@@ -44,7 +44,7 @@ namespace WizardGame.Classes
 
         public static Object GetSingleEntity(Type className)
         {
-            foreach (IEntityModel entity in gameEntities)
+            foreach (Entity entity in gameEntities)
             {
                 if (entity.GetType().Equals(className))
                 {
@@ -54,7 +54,7 @@ namespace WizardGame.Classes
             return null;
         }
 
-        public static double GetAngleBetweenEntitiesInRadians(IEntityModel objA, IEntityModel objB)
+        public static double GetAngleBetweenEntitiesInRadians(Entity objA, Entity objB)
         {
             // Vector between objA and objB
             Vector2 a = new Vector2(objB.XPos - objA.XPos, objB.YPos - objA.YPos);
@@ -80,7 +80,7 @@ namespace WizardGame.Classes
             return a.X * b.Y - a.Y * b.X; ;
         }
 
-        public static double GetDistanceBetweenEntities(IEntityModel objA, IEntityModel objB)
+        public static double GetDistanceBetweenEntities(Entity objA, Entity objB)
         {
             double x = objB.XPos - objA.XPos;
             double y = objB.YPos - objA.YPos;

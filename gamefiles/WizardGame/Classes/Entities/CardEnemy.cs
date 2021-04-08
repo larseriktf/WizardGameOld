@@ -10,25 +10,11 @@ using static System.Math;
 
 namespace WizardGame.Classes.Entities
 {
-    public class CardEnemy : IEntitySpriteModel
+    public class CardEnemy : SpriteEntity, IDrawable
     {
         public static readonly string bitMapUri = "ms-appx:///Assets/Sprites/Entities/CardEnemy/spr_cards.png";
         public static readonly int spriteWidth = 24;
         public static readonly int spriteHeight = 24;
-        public SpriteSheet Sprite { get; set; }
-
-        public float XPos { get; set; } = 0;
-        public float YPos { get; set; } = 0;
-
-        public int ImageX { get; set; } = 0;
-        public int ImageY { get; set; } = 0;
-        public float XScale { get; set; } = 1f;
-        public float YScale { get; set; } = 1f;
-
-        public float Red { get; set; } = 1f;
-        public float Green { get; set; } = 1f;
-        public float Blue { get; set; } = 1f;
-        public float Alpha { get; set; } = 1f;
 
         private double speed = 8;
         private double angle = 0.5 * Math.PI;
@@ -64,15 +50,6 @@ namespace WizardGame.Classes.Entities
 
                 distanceToPoint = EntityManager.GetDistanceBetweenEntities(this, coordPoint);
 
-                //if (distanceToPoint < 300)
-                //{
-                //    speed = 8 - 8 * (distanceToPoint / 300);
-                //}
-                //else
-                //{
-                //    speed = 8;
-                //}
-
                 if (distanceToPoint < 300)
                 {
                     amplifier = 0.5 * (distanceToPoint / 300);
@@ -91,7 +68,9 @@ namespace WizardGame.Classes.Entities
 
             using (var spriteBatch = ds.CreateSpriteBatch())
             {
-                Sprite.DrawSpriteExt(
+                if (Sprite != null)
+                {
+                    Sprite.DrawSpriteExt(
                     spriteBatch,
                     new Vector2(XPos, YPos),
                     new Vector2(ImageX, ImageY),
@@ -99,8 +78,8 @@ namespace WizardGame.Classes.Entities
                     (float)(angle - 0.5 * Math.PI),
                     new Vector2(XScale, YScale),
                     0);
+                }
             }
-                
         }
     }
 }
