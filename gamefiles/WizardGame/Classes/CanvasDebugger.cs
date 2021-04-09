@@ -90,15 +90,15 @@ namespace WizardGame.Classes
                 //    lagAngle = PI + CardEnemy.NextAngle - threshold;
                 //}
 
-                //ds.DrawText((lagAngle - CardEnemy.NextAngle).ToString(), 250, 50, Colors.Yellow);
+                ds.DrawText((CardEnemy.LagAngle - CardEnemy.NextAngle).ToString(), 250, 50, Colors.Yellow);
 
 
-                //ds.DrawLine(
-                //    objA.XPos,
-                //    objA.YPos,
-                //    objA.XPos + ((float)Math.Cos(lagAngle) * length),
-                //    objA.YPos + ((float)Math.Sin(lagAngle) * length),
-                //    Colors.Green);
+                ds.DrawLine(
+                    objA.XPos,
+                    objA.YPos,
+                    objA.XPos + ((float)Math.Cos(CardEnemy.LagAngle) * length),
+                    objA.YPos + ((float)Math.Sin(CardEnemy.LagAngle) * length),
+                    Colors.Green);
 
                 // Vector towards target
                 ds.DrawLine(
