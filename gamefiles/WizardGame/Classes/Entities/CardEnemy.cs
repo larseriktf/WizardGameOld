@@ -10,11 +10,11 @@ using static System.Math;
 
 namespace WizardGame.Classes.Entities
 {
-    public class CardEnemy : SpriteEntity, IDrawable
+    public class CardEnemy : Entity, IDrawable
     {
-        public static readonly string bitMapUri = "ms-appx:///Assets/Sprites/Entities/CardEnemy/spr_cards.png";
-        public static readonly int spriteWidth = 24;
-        public static readonly int spriteHeight = 24;
+        public string BitMapUri { get; } = "ms-appx:///Assets/Sprites/Entities/CardEnemy/spr_cards.png";
+        public readonly int spriteWidth = 24;
+        public readonly int spriteHeight = 24;
 
         private double speed = 8;
         private double angle = 0.5 * Math.PI;
@@ -26,6 +26,11 @@ namespace WizardGame.Classes.Entities
 
         public static double Angle = 0;
         public static double NextAngle = 0;
+
+        public async void LoadImageResourceAsync(CanvasDevice device)
+        {
+            Sprite = await SpriteSheet.LoadSpriteSheetAsync(device, BitMapUri, new Vector2(spriteWidth, spriteHeight));
+        }
 
         public void DrawSelf(CanvasDrawingSession ds)
         {

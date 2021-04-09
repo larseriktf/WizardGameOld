@@ -10,14 +10,19 @@ using WizardGame.Interfaces;
 
 namespace WizardGame.Classes
 {
-    public class Player : SpriteEntity, IDrawable
+    public class Player : Entity, IDrawable
     {
         public int MoveSpeed { get; set; } = 10;
 
-        public static readonly string bitMapUri = "ms-appx:///Assets/Sprites/Entities/Player/spr_player.png";
-        public static readonly int spriteWidth = 96;
-        public static readonly int spriteHeight = 96;
-        
+        public string BitMapUri { get; } = "ms-appx:///Assets/Sprites/Entities/Player/spr_player.png";
+        public readonly int spriteWidth = 96;
+        public readonly int spriteHeight = 96;
+
+        public async void LoadImageResourceAsync(CanvasDevice device)
+        {
+            Sprite = await SpriteSheet.LoadSpriteSheetAsync(device, BitMapUri, new Vector2(spriteWidth, spriteHeight));
+        }
+
         public void DrawSelf(CanvasDrawingSession ds)
         {
             if (KeyBoard.KeyLeft)

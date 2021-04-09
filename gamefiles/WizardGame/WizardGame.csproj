@@ -120,10 +120,8 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Classes\CanvasDebugger.cs" />
-    <Compile Include="Classes\Entities\BitMapEntity.cs" />
     <Compile Include="Classes\Entities\CardEnemy.cs" />
     <Compile Include="Classes\Entities\Entity.cs" />
-    <Compile Include="Classes\Entities\SpriteEntity.cs" />
     <Compile Include="Classes\Entities\Target.cs" />
     <Compile Include="Classes\KeyBoard.cs" />
     <Compile Include="Classes\Entities\Player.cs" />

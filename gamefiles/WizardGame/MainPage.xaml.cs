@@ -78,9 +78,9 @@ namespace WizardGame
 
         async Task LoadResourcesAsync(CanvasAnimatedControl sender)
         {   // Loads images and spritesheets
-            Player.Sprite = await SpriteSheet.LoadSpriteSheetAsync(sender.Device, Player.bitMapUri, new Vector2(Player.spriteWidth, Player.spriteHeight));
-            CardEnemy.Sprite = await SpriteSheet.LoadSpriteSheetAsync(sender.Device, CardEnemy.bitMapUri, new Vector2(CardEnemy.spriteWidth, CardEnemy.spriteHeight));
-            Target.BitMap = await CanvasBitmap.LoadAsync(sender.Device, new Uri(Target.bitMapUri));
+            //Player.Sprite = await SpriteSheet.LoadSpriteSheetAsync(sender.Device, Player.bitMapUri, new Vector2(Player.spriteWidth, Player.spriteHeight));
+            //CardEnemy.Sprite = await SpriteSheet.LoadSpriteSheetAsync(sender.Device, CardEnemy.bitMapUri, new Vector2(CardEnemy.spriteWidth, CardEnemy.spriteHeight));
+            //Target.BitMap = await CanvasBitmap.LoadAsync(sender.Device, new Uri(Target.bitMapUri));
 
             EntityManager.gameEntities.Add(new Player());
             EntityManager.gameEntities.Add(new CardEnemy()
@@ -105,16 +105,18 @@ namespace WizardGame
                 YPos = 750
             }); ;
 
-            mapSpriteSheets.Add(
-                "dev",
-                await SpriteSheet.LoadSpriteSheetAsync(sender.Device, "ms-appx:///Assets/Sprites/Dev/spr_dev.jpg", new Vector2(128, 128)));
+            
+            //mapSpriteSheets.Add(
+            //    "dev",
+            //    await SpriteSheet.LoadSpriteSheetAsync(sender.Device, "ms-appx:///Assets/Sprites/Dev/spr_dev.jpg", new Vector2(128, 128)));
 
-            // Get maps
-            maps = MapEditor.GetMaps(mapSpriteSheets);
+            //// Get maps
+            //maps = MapEditor.GetMaps(mapSpriteSheets);
 
-            // @TODO: Make this more flexible, so it allowes all maps to be added / Or just current playing map to be added
-            Layer layer0 = new Layer("layer0");
+            //// @TODO: Make this more flexible, so it allowes all maps to be added / Or just current playing map to be added
+            //Layer layer0 = new Layer("layer0");
             //layer0.GameObjects.Add(maps[0].MapLayouts[0]);
+            //EntityManager.Layers.Add(layer0);
 
             // Add stuff
             Layer layer1 = new Layer("layer1");
@@ -124,8 +126,17 @@ namespace WizardGame
                 layer1.GameObjects.Add(entity);
             }
 
-            EntityManager.Layers.Add(layer0);
+            
             EntityManager.Layers.Add(layer1);
+
+            // Load sprites and spritesheets
+            foreach (Layer layer in EntityManager.Layers)
+            {
+                foreach (IDrawable gameObject in layer.GameObjects)
+                {
+                    gameObject.LoadImageResourceAsync(sender.Device);
+                }
+            }
         }
 
         

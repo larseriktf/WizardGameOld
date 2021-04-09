@@ -12,6 +12,7 @@ namespace WizardGame.Classes
 {
     public static class EntityManager
     {
+        
         public static List<Layer> Layers { get; set; } = new List<Layer>();
 
         public static List<Entity> gameEntities = new List<Entity>();

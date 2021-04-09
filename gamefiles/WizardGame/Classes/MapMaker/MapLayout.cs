@@ -10,9 +10,11 @@ using WizardGame.Interfaces;
 
 namespace WizardGame.Classes.MapMaker
 {
-    public class MapLayout : SpriteEntity
+    public class MapLayout : Entity
     {
         public int[][] Layout { get; set; } // multidimensional array
+
+        public string BitMapUri => throw new NotImplementedException();
 
         public MapLayout(SpriteSheet spriteSheet, int[][] layout)
         {
