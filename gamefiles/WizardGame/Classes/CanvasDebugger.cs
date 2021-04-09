@@ -66,13 +66,14 @@ namespace WizardGame.Classes
                 // Vector that lags behind
                 double dist = EntityManager.GetDistanceBetweenEntities(objA, objB);
 
-                double lag = (dist / 300) * Sign(PI - CardEnemy.Angle);
+                double lagAngle = CardEnemy.Angle * (1 + ((CardEnemy.Angle - (2 * PI)/3) / (PI - (2 * PI) / 3)) * 0.25);
+                ds.DrawText(lagAngle.ToString(), 250, 50, Colors.Yellow);
 
                 ds.DrawLine(
                     objA.XPos,
                     objA.YPos,
-                    objA.XPos + ((float)Math.Cos(CardEnemy.Angle * lag) * length),
-                    objA.YPos + ((float)Math.Sin(CardEnemy.Angle * lag) * length),
+                    objA.XPos + ((float)Math.Cos(lagAngle) * length),
+                    objA.YPos + ((float)Math.Sin(lagAngle) * length),
                     Colors.Green);
 
                 // Vector towards target
