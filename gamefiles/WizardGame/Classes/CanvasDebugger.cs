@@ -64,42 +64,41 @@ namespace WizardGame.Classes
                     Colors.Blue);
 
                 // Vector that lags behind
-                double dist = EntityManager.GetDistanceBetweenEntities(objA, objB);
+                //double dist = EntityManager.GetDistanceBetweenEntities(objA, objB);
 
-                // Old: double lagAngle = CardEnemy.Angle * (1 + ((CardEnemy.Angle - (2 * PI)/3) / (PI - (2 * PI) / 3)) * 0.25);
-                double lagAngle = CardEnemy.Angle;
+                //double lagAngle = CardEnemy.Angle;
 
-                // Keep angle inside bounderies of [0, 2PI>
-                if (lagAngle >= 2 * PI + CardEnemy.NextAngle)
-                {
-                    lagAngle -= 2 * PI;
-                }
-                else if (lagAngle < 0 + CardEnemy.NextAngle)
-                {
-                    lagAngle += 2 * PI;
-                }
+                //// Keep angle inside bounderies of [0, 2PI>
+                //if (lagAngle >= 2 * PI + CardEnemy.NextAngle)
+                //{
+                //    lagAngle -= 2 * PI;
+                //}
+                //else if (lagAngle < 0 + CardEnemy.NextAngle)
+                //{
+                //    lagAngle += 2 * PI;
+                //}
 
-                // Use of range
-                double threshold = 1.25 * (dist / 300);
+                //// Use of range
+                //double threshold = 1.25 * (dist / 300);
 
-                if (lagAngle > PI + CardEnemy.NextAngle && lagAngle < PI + CardEnemy.NextAngle + threshold)
-                {
-                    lagAngle = PI + CardEnemy.NextAngle + threshold;
-                }
-                if (lagAngle < PI + CardEnemy.NextAngle && lagAngle > PI + CardEnemy.NextAngle - threshold)
-                {
-                    lagAngle = PI + CardEnemy.NextAngle - threshold;
-                }
+                //if (lagAngle > PI + CardEnemy.NextAngle && lagAngle < PI + CardEnemy.NextAngle + threshold)
+                //{
+                //    lagAngle = PI + CardEnemy.NextAngle + threshold;
+                //}
+                //if (lagAngle < PI + CardEnemy.NextAngle && lagAngle > PI + CardEnemy.NextAngle - threshold)
+                //{
+                //    lagAngle = PI + CardEnemy.NextAngle - threshold;
+                //}
 
-                ds.DrawText((lagAngle - CardEnemy.NextAngle).ToString(), 250, 50, Colors.Yellow);
+                //ds.DrawText((lagAngle - CardEnemy.NextAngle).ToString(), 250, 50, Colors.Yellow);
 
 
-                ds.DrawLine(
-                    objA.XPos,
-                    objA.YPos,
-                    objA.XPos + ((float)Math.Cos(lagAngle) * length),
-                    objA.YPos + ((float)Math.Sin(lagAngle) * length),
-                    Colors.Green);
+                //ds.DrawLine(
+                //    objA.XPos,
+                //    objA.YPos,
+                //    objA.XPos + ((float)Math.Cos(lagAngle) * length),
+                //    objA.YPos + ((float)Math.Sin(lagAngle) * length),
+                //    Colors.Green);
 
                 // Vector towards target
                 ds.DrawLine(
