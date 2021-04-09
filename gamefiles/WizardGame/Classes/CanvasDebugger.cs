@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Windows.UI;
 using WizardGame.Classes.Entities;
 using WizardGame.Interfaces;
+using static System.Math;
 
 namespace WizardGame.Classes
 {
@@ -53,23 +54,34 @@ namespace WizardGame.Classes
         {
             if (objA != null && objB != null)
             {
-                // Previous vector
-                //ds.DrawLine(objA.XPos, objA.YPos, objB.XPos, objB.YPos, Colors.Yellow);
-                //ds.DrawLine(objA.XPos, objA.YPos, objB.XPos, objA.YPos, Colors.Yellow);
 
+                // Card velocity vector
                 ds.DrawLine(
                     objA.XPos,
                     objA.YPos,
                     objA.XPos + ((float)Math.Cos(CardEnemy.Angle) * length),
                     objA.YPos + ((float)Math.Sin(CardEnemy.Angle) * length),
-                    Colors.Yellow);
+                    Colors.Blue);
 
+                // Vector that lags behind
+                double dist = EntityManager.GetDistanceBetweenEntities(objA, objB);
+
+                double lag = (dist / 300) * Sign(PI - CardEnemy.Angle);
+
+                ds.DrawLine(
+                    objA.XPos,
+                    objA.YPos,
+                    objA.XPos + ((float)Math.Cos(CardEnemy.Angle * lag) * length),
+                    objA.YPos + ((float)Math.Sin(CardEnemy.Angle * lag) * length),
+                    Colors.Green);
+
+                // Vector towards target
                 ds.DrawLine(
                     objA.XPos,
                     objA.YPos,
                     objA.XPos + ((float)Math.Cos(CardEnemy.NextAngle) * length),
                     objA.YPos + ((float)Math.Sin(CardEnemy.NextAngle) * length),
-                    Colors.Yellow);
+                    Colors.Red);
             }
 
             

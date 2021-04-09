@@ -16,7 +16,7 @@ namespace WizardGame.Classes.Entities
 
         public async void LoadImageResourceAsync(CanvasDevice device)
         {
-            Sprite = await SpriteSheet.LoadSpriteSheetAsync(device, BitMapUri, new Vector2(8, 8));
+            BitMap = await CanvasBitmap.LoadAsync(device, new Uri(BitMapUri));
         }
 
         public void DrawSelf(CanvasDrawingSession ds)

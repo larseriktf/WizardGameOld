@@ -83,29 +83,30 @@ namespace WizardGame
             //Target.BitMap = await CanvasBitmap.LoadAsync(sender.Device, new Uri(Target.bitMapUri));
 
             EntityManager.gameEntities.Add(new Player());
-            EntityManager.gameEntities.Add(new CardEnemy()
+            EntityManager.gameEntities.Add(new Target()
             {
                 XPos = 500,
                 YPos = 500
             });
             EntityManager.gameEntities.Add(new CardEnemy()
             {
-                XPos = 600,
+                XPos = 650,
                 YPos = 500
             });
-            EntityManager.gameEntities.Add(new CardEnemy()
-            {
-                XPos = 700,
-                YPos = 500
-            });
+            //EntityManager.gameEntities.Add(new CardEnemy()
+            //{
+            //    XPos = 600,
+            //    YPos = 500
+            //});
+            //EntityManager.gameEntities.Add(new CardEnemy()
+            //{
+            //    XPos = 700,
+            //    YPos = 500
+            //});
 
-            EntityManager.gameEntities.Add(new Target()
-            {
-                XPos = 1000,
-                YPos = 750
-            }); ;
 
-            
+
+
             //mapSpriteSheets.Add(
             //    "dev",
             //    await SpriteSheet.LoadSpriteSheetAsync(sender.Device, "ms-appx:///Assets/Sprites/Dev/spr_dev.jpg", new Vector2(128, 128)));

@@ -25,24 +25,24 @@ namespace WizardGame.Classes
 
         public void DrawSelf(CanvasDrawingSession ds)
         {
-            if (KeyBoard.KeyLeft)
-            {
-                XPos -= MoveSpeed;
-                XScale = -1f;
-            }
-            if (KeyBoard.KeyRight)
-            {
-                XPos += MoveSpeed;
-                XScale = 1f;
-            }
-            if (KeyBoard.KeyUp)
-            {
-                YPos -= MoveSpeed;
-            }
-            if (KeyBoard.KeyDown)
-            {
-                YPos += MoveSpeed;
-            }
+            //if (KeyBoard.KeyLeft)
+            //{
+            //    XPos -= MoveSpeed;
+            //    XScale = -1f;
+            //}
+            //if (KeyBoard.KeyRight)
+            //{
+            //    XPos += MoveSpeed;
+            //    XScale = 1f;
+            //}
+            //if (KeyBoard.KeyUp)
+            //{
+            //    YPos -= MoveSpeed;
+            //}
+            //if (KeyBoard.KeyDown)
+            //{
+            //    YPos += MoveSpeed;
+            //}
 
             using (var spriteBatch = ds.CreateSpriteBatch())
             {
