@@ -43,7 +43,7 @@ namespace WizardGame.Classes
             return false;
         }
 
-        public static Object GetSingleEntity(Type className)
+        public static Entity GetSingleEntity(Type className)
         {
             foreach (Entity entity in gameEntities)
             {
@@ -53,6 +53,40 @@ namespace WizardGame.Classes
                 }
             }
             return null;
+        }
+
+        public static Entity GetNearestEntity(Entity obj, Type className)
+        {
+            List<Entity> entities = GetEntities(className);
+            Entity nearest = null;
+            double dist = 0;
+
+            foreach (Entity entity in entities)
+            {
+                if (nearest == null)
+                {
+                    nearest = entity;
+                    dist = GetDistanceBetweenEntities(obj, entity);
+                }
+                else if (GetDistanceBetweenEntities(obj, entity) < dist)
+                {
+                    nearest = entity;
+                }
+            }
+            return nearest;
+        }
+
+        public static List<Entity> GetEntities(Type className)
+        {
+            List<Entity> listOfObjects = new List<Entity>();
+            foreach (Entity entity in gameEntities)
+            {
+                if (entity.GetType().Equals(className))
+                {
+                    listOfObjects.Add(entity);
+                }
+            }
+            return listOfObjects;
         }
 
         public static double GetAngleBetweenEntitiesInRadians(Entity objA, Entity objB)
