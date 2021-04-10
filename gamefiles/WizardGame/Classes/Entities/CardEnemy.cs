@@ -52,8 +52,8 @@ namespace WizardGame.Classes.Entities
 
         public void DrawSelf(CanvasDrawingSession ds)
         {
-            
 
+            detectStateChange();
             updateMovement();
 
             if (animTimer == null)
@@ -62,21 +62,12 @@ namespace WizardGame.Classes.Entities
 
                 animTimer = new Timer(1000);
 
-                animTimer.Elapsed += new ElapsedEventHandler(playAnimation);
+                animTimer.Elapsed += delegate(object source, ElapsedEventArgs e)
+                {   // Plays animation on timer tick
+                    playAnimation();
+                };
                 animTimer.Start();
             }
-
-
-            if (state == 0)
-            {
-                
-            }
-            else if (state == 1)
-            {
-
-            }
-
-            
 
             if (ImageX > 3)
             {
@@ -112,7 +103,18 @@ namespace WizardGame.Classes.Entities
             }
         }
 
-        private void playAnimation(object source, ElapsedEventArgs e)
+        private void detectStateChange()
+        {
+            int prevState = 0;
+
+            if (state != prevState)
+            {
+                playAnimation();
+                prevState = state;
+            }
+        }
+
+        private void playAnimation()
         {
             if (state == 0)
             {
@@ -129,10 +131,19 @@ namespace WizardGame.Classes.Entities
             }
             else if (state == 1)
             {
-                ImageY = 2;
+                if (ImageY % 2 == 0)
+                {   // Front / back of card
+                    ImageY = 2;
+                }
+                else
+                {   // Card is in transition
+                    animTimer.Interval = 50;
+                }
 
             }
         }
+
+        
 
         private void updateMovement()
         {
