@@ -128,17 +128,17 @@ namespace WizardGame.Classes.Entities
 
                 angle += turningSpeed * 2 + Sin(wiggleRoom) * 0.025 * amplifier; 
 
-                Angle = angle;
-                NextAngle = nextAngle;
-                LagAngle = lagAngle;
+                //Angle = angle;
+                //NextAngle = nextAngle;
+                //LagAngle = lagAngle;
 
-                CanvasDebugger.objA = this;
-                CanvasDebugger.objB = coordPoint;
-                CanvasDebugger.Debug(this, "Angle: " + angle
-                                    + "\nNextAngle: " + nextAngle
-                                    + "\nDistance: " + dist
-                                    + "\nAmplifier: " + amplifier
-                                    + "\nWiggleroom: " + Sin(wiggleRoom) * amplifier);
+                //CanvasDebugger.objA = this;
+                //CanvasDebugger.objB = coordPoint;
+                //CanvasDebugger.Debug(this, "Angle: " + angle
+                //                    + "\nNextAngle: " + nextAngle
+                //                    + "\nDistance: " + dist
+                //                    + "\nAmplifier: " + amplifier
+                //                    + "\nWiggleroom: " + Sin(wiggleRoom) * amplifier);
             }
 
             XPos += (float)(speed * Cos(angle));

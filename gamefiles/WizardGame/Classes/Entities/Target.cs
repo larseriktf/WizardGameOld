@@ -60,7 +60,7 @@ namespace WizardGame.Classes.Entities
 
             if (BitMap != null)
             {
-                ds.DrawImage(BitMap, XPos - 4, YPos - 4);
+                //ds.DrawImage(BitMap, XPos - 4, YPos - 4);
             }
         }
     }

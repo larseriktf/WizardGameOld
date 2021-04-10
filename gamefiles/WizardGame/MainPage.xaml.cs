@@ -93,6 +93,31 @@ namespace WizardGame
                 XPos = 1200,
                 YPos = 550
             });
+            EntityManager.gameEntities.Add(new CardEnemy()
+            {
+                XPos = 100,
+                YPos = 500
+            });
+            EntityManager.gameEntities.Add(new CardEnemy()
+            {
+                XPos = 500,
+                YPos = 550
+            });
+            EntityManager.gameEntities.Add(new CardEnemy()
+            {
+                XPos = 100,
+                YPos = 100
+            });
+            EntityManager.gameEntities.Add(new CardEnemy()
+            {
+                XPos = 150,
+                YPos = 550
+            });
+            EntityManager.gameEntities.Add(new CardEnemy()
+            {
+                XPos = 750,
+                YPos = 600
+            });
             //EntityManager.gameEntities.Add(new CardEnemy()
             //{
             //    XPos = 600,
