@@ -55,7 +55,7 @@ namespace WizardGame.Classes
             if (objA != null && objB != null)
             {
 
-                // Card velocity vector
+                //// Card velocity vector
                 //ds.DrawLine(
                 //    objA.XPos,
                 //    objA.YPos,
@@ -63,6 +63,7 @@ namespace WizardGame.Classes
                 //    objA.YPos + ((float)Math.Sin(CardEnemy.Angle) * length),
                 //    Colors.Blue);
 
+                //// Lagging vector
                 //ds.DrawLine(
                 //    objA.XPos,
                 //    objA.YPos,
@@ -74,8 +75,8 @@ namespace WizardGame.Classes
                 //ds.DrawLine(
                 //    objA.XPos,
                 //    objA.YPos,
-                //    objA.XPos + ((float)Math.Cos(CardEnemy.NextAngle) * length),
-                //    objA.YPos + ((float)Math.Sin(CardEnemy.NextAngle) * length),
+                //    objA.XPos + ((float)Math.Cos(CardEnemy.TargetAngle) * length),
+                //    objA.YPos + ((float)Math.Sin(CardEnemy.TargetAngle) * length),
                 //    Colors.Red);
             }
 

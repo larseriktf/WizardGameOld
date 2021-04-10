@@ -16,15 +16,18 @@ namespace WizardGame.Classes.Entities
         public readonly int spriteWidth = 24;
         public readonly int spriteHeight = 24;
 
-        private double speed = 8;
+        private double speed = 12;
         private double angle = 0.5 * Math.PI;
+        private double decidedAngle = 0;
         private double targetAngle = 0;
+        private double lagAngle = 0;
         private double turningSpeed = 0;
-        private double wiggleRoom = 0.5;
+        private double wiggle = 0.5;
         private double dist = 0;
         private double amplifier = 0;
-        private double lagAngle = 0;
+        
         private double threshold = 0;
+        private int state = 0; // 0: Guarding, 1: Chasing, 2: Dead
         
         // For debugging
         public static double Angle = 0;
@@ -38,10 +41,64 @@ namespace WizardGame.Classes.Entities
 
         public void DrawSelf(CanvasDrawingSession ds)
         {
-            Target target = (Target)EntityManager.GetNearestEntity(this, typeof(Target));
-            targetAngle = EntityManager.GetAngleBetweenEntitiesInRadians(this, target);
+            Entity target;
+            int minLength = 200;
+            int maxLength = 250;
 
-            dist = EntityManager.GetDistanceBetweenEntities(this, target);
+            if (KeyBoard.ToggleTarget)
+            {
+                state = 1;
+            }
+            else
+            {
+                state = 0;
+            }
+
+
+            if (state == 0)
+            {   // Guarding state
+                target = EntityManager.GetNearestEntity(this, typeof(Target));
+                targetAngle = EntityManager.GetAngleBetweenEntitiesInRadians(this, target);
+
+                dist = EntityManager.GetDistanceBetweenEntities(this, target);
+
+                lagAngle = angle;
+
+                // Keep lag angle inside bounderies of [0, 2PI>
+                if (lagAngle >= 2 * PI + targetAngle)
+                {
+                    lagAngle -= 2 * PI;
+                }
+                else if (lagAngle < 0 + targetAngle)
+                {
+                    lagAngle += 2 * PI;
+                }
+
+                if (lagAngle > PI + targetAngle && lagAngle < PI + targetAngle + threshold)
+                {
+                    lagAngle = PI + targetAngle + threshold;
+                }
+                if (lagAngle < PI + targetAngle && lagAngle > PI + targetAngle - threshold)
+                {
+                    lagAngle = PI + targetAngle - threshold;
+                }
+
+                decidedAngle = lagAngle;
+
+                wiggle += 0.08;
+                amplifier = 2.25;
+                
+            }
+            else if (state == 1)
+            {   // Chasing state
+                target = EntityManager.GetNearestEntity(this, typeof(Player));
+                targetAngle = EntityManager.GetAngleBetweenEntitiesInRadians(this, target);
+
+                decidedAngle = angle;
+
+                wiggle += 0.04;
+                amplifier = 2.0;
+            }
 
             // Keep angle inside bounderies of [0, 2PI>
             if (angle >= 2 * PI)
@@ -53,65 +110,30 @@ namespace WizardGame.Classes.Entities
                 angle += 2 * PI;
             }
 
-            lagAngle = angle;
-
-            // Keep lag angle inside bounderies of [0, 2PI>
-            if (lagAngle >= 2 * PI + targetAngle)
-            {
-                lagAngle -= 2 * PI;
-            }
-            else if (lagAngle < 0 + targetAngle)
-            {
-                lagAngle += 2 * PI;
-            }
-
-            // Use of range
-            int minLength = 200;
-            int maxLength = 250;
-
+            // Range Threshold
             if (dist < maxLength)
             {
                 threshold = (PI * 0.5) * ((dist - minLength) / (maxLength - minLength));
             }
 
-            if (lagAngle > PI + targetAngle && lagAngle < PI + targetAngle + threshold)
-            {
-                lagAngle = PI + targetAngle + threshold;
-            }
-            if (lagAngle < PI + targetAngle && lagAngle > PI + targetAngle - threshold)
-            {
-                lagAngle = PI + targetAngle - threshold;
-            }
-
             turningSpeed = 0.05 * (EntityManager.GetCrossProductOfTwoVectors(
-                                new Vector2((float)Cos(lagAngle), (float)Sin(lagAngle)),
-                                new Vector2((float)Cos(targetAngle), (float)Sin(targetAngle))));
+                                    new Vector2((float)Cos(decidedAngle), (float)Sin(decidedAngle)),
+                                    new Vector2((float)Cos(targetAngle), (float)Sin(targetAngle))));
 
-            wiggleRoom += 0.08;
+            angle += turningSpeed * amplifier + Sin(wiggle) * 0.025;
 
-                
-            //if (dist < 100)
-            //{
-            //    amplifier = ((dist - 100) / (0 - 100));
-            //}
-            //else
-            //{
-            //    amplifier = 0;
-            //}
-
-            angle += turningSpeed * 2.25 + Sin(wiggleRoom) * 0.025; 
-
+            //// Debug
             //Angle = angle;
-            //NextAngle = nextAngle;
+            //TargetAngle = targetAngle;
             //LagAngle = lagAngle;
 
             //CanvasDebugger.objA = this;
-            //CanvasDebugger.objB = coordPoint;
+            //CanvasDebugger.objB = target;
             //CanvasDebugger.Debug(this, "Angle: " + angle
-            //                    + "\nNextAngle: " + nextAngle
+            //                    + "\nNextAngle: " + TargetAngle
             //                    + "\nDistance: " + dist
             //                    + "\nAmplifier: " + amplifier
-            //                    + "\nWiggleroom: " + Sin(wiggleRoom) * amplifier);
+            //                    + "\nWiggleroom: " + Sin(wiggle));
 
             XPos += (float)(speed * Cos(angle));
             YPos += (float)(speed * Sin(angle));
