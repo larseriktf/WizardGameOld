@@ -16,7 +16,7 @@ namespace WizardGame.Classes.Entities
         public readonly int spriteWidth = 24;
         public readonly int spriteHeight = 24;
 
-        private double speed = 0;
+        private double speed = 8;
         private double angle = 0.5 * Math.PI;
         private double nextAngle = 0;
         private double turningSpeed = 0;
@@ -43,37 +43,35 @@ namespace WizardGame.Classes.Entities
 
                 nextAngle = EntityManager.GetAngleBetweenEntitiesInRadians(this, coordPoint);
 
-                turningSpeed = 0.05 * (EntityManager.GetCrossProductOfTwoVectors(
-                                    new Vector2((float)Cos(angle), (float)Sin(angle)),
-                                    new Vector2((float)Cos(nextAngle), (float)Sin(nextAngle))));
+                
 
                 dist = EntityManager.GetDistanceBetweenEntities(this, coordPoint);
 
-                if (KeyBoard.KeyLeft)
-                {
-                    XPos -= 2f;
-                }
-                if (KeyBoard.KeyRight)
-                {
-                    XPos += 2f;
-                }
-                if (KeyBoard.KeyUp)
-                {
-                    YPos -= 2f;
-                }
-                if (KeyBoard.KeyDown)
-                {
-                    YPos += 2f;
-                }
+                //if (KeyBoard.KeyLeft)
+                //{
+                //    XPos -= 2f;
+                //}
+                //if (KeyBoard.KeyRight)
+                //{
+                //    XPos += 2f;
+                //}
+                //if (KeyBoard.KeyUp)
+                //{
+                //    YPos -= 2f;
+                //}
+                //if (KeyBoard.KeyDown)
+                //{
+                //    YPos += 2f;
+                //}
 
-                if (KeyBoard.KeyIncrementVector)
-                {
-                    angle += 0.025;
-                }
-                if (KeyBoard.KeyDecrementVector)
-                {
-                    angle -= 0.025;
-                }
+                //if (KeyBoard.KeyIncrementVector)
+                //{
+                //    angle += 0.025;
+                //}
+                //if (KeyBoard.KeyDecrementVector)
+                //{
+                //    angle -= 0.025;
+                //}
 
                 // Keep angle inside bounderies of [0, 2PI>
                 if (angle >= 2 * PI)
@@ -100,7 +98,7 @@ namespace WizardGame.Classes.Entities
                 // Use of range
                 if (dist < 300)
                 {
-                    threshold = (PI - 0.4) * ((dist - 250) / (300 - 250));
+                    threshold = (PI * 0.5) * ((dist - 250) / (300 - 250));
                 }
 
                 if (lagAngle > PI + nextAngle && lagAngle < PI + nextAngle + threshold)
@@ -112,7 +110,23 @@ namespace WizardGame.Classes.Entities
                     lagAngle = PI + nextAngle - threshold;
                 }
 
-                //angle += turningSpeed;
+                turningSpeed = 0.05 * (EntityManager.GetCrossProductOfTwoVectors(
+                                    new Vector2((float)Cos(lagAngle), (float)Sin(lagAngle)),
+                                    new Vector2((float)Cos(nextAngle), (float)Sin(nextAngle))));
+
+                wiggleRoom += 0.08;
+
+                
+                if (dist < 100)
+                {
+                    amplifier = ((dist - 100) / (0 - 100));
+                }
+                else
+                {
+                    amplifier = 0;
+                }
+
+                angle += turningSpeed * 2 + Sin(wiggleRoom) * 0.025 * amplifier; 
 
                 Angle = angle;
                 NextAngle = nextAngle;
@@ -122,37 +136,9 @@ namespace WizardGame.Classes.Entities
                 CanvasDebugger.objB = coordPoint;
                 CanvasDebugger.Debug(this, "Angle: " + angle
                                     + "\nNextAngle: " + nextAngle
-                                    + "\nDistance: " + dist);
-
-                //Target coordPoint = (Target)EntityManager.GetSingleEntity(typeof(Target));
-
-                //nextAngle = EntityManager.GetAngleBetweenEntitiesInRadians(this, coordPoint);
-
-
-                //turningSpeed = 0.05 * (EntityManager.GetCrossProductOfTwoVectors(
-                //                    new Vector2((float)Cos(angle), (float)Sin(angle)),
-                //                    new Vector2((float)Cos(nextAngle), (float)Sin(nextAngle))));
-
-                //angle += turningSpeed;
-                ////angle += turningSpeed + amplifier * ((angle - PI) / (2 * PI * Sign(angle - PI) - PI));
-                //// Sin(wiggleRoom) * 0.025
-                //Angle = angle;
-
-
-
-                //wiggleRoom += 0.08;
-
-                //NextAngle = nextAngle;
-
-
-
-                //amplifier = 0.05 * (dist / 300) * Sign(angle - PI);
-
-                //CanvasDebugger.objA = this;
-                //CanvasDebugger.objB = coordPoint;
-                //CanvasDebugger.Debug(this, "Angle: " + angle
-                //                    + "\nNextAngle: " + nextAngle
-                //                    + "\nDistance: " + dist);
+                                    + "\nDistance: " + dist
+                                    + "\nAmplifier: " + amplifier
+                                    + "\nWiggleroom: " + Sin(wiggleRoom) * amplifier);
             }
 
             XPos += (float)(speed * Cos(angle));
