@@ -5,6 +5,8 @@ using System.Linq;
 using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
+using Windows.UI.Xaml;
 using WizardGame.Interfaces;
 using static System.Math;
 
@@ -16,7 +18,9 @@ namespace WizardGame.Classes.Entities
         public readonly int spriteWidth = 24;
         public readonly int spriteHeight = 24;
 
-        private double speed = 6 + new Random().NextDouble() * 5;
+        private static readonly Random random = new Random();
+
+        private readonly double speed = 6 + random.NextDouble() * 5;
         private double angle = 0.5 * Math.PI;
         private double decidedAngle = 0;
         private double targetAngle = 0;
@@ -29,14 +33,17 @@ namespace WizardGame.Classes.Entities
         private double threshold = 0;
         private int state = 0; // 0: Guarding, 1: Chasing, 2: Dead
 
-        private double wiggleRate = new Random().NextDouble() * 0.1;
-        private double wiggleMultiplier = new Random().NextDouble() * 0.025;
-        private double wiggle = new Random().NextDouble();
+        private readonly double wiggleRate = random.NextDouble() * 0.1;
+        private readonly double wiggleMultiplier = random.NextDouble() * 0.025;
+        private double wiggle = random.NextDouble();
 
         // For debugging
         public static double Angle = 0;
         public static double TargetAngle = 0;
         public static double LagAngle = 0;
+
+        Timer animTimer = null;
+        Entity target;
 
         public async void LoadImageResourceAsync(CanvasDevice device)
         {
@@ -45,7 +52,90 @@ namespace WizardGame.Classes.Entities
 
         public void DrawSelf(CanvasDrawingSession ds)
         {
-            Entity target;
+            
+
+            updateMovement();
+
+            if (animTimer == null)
+            {
+                ImageX = random.Next(0, 3);
+
+                animTimer = new Timer(1000);
+
+                animTimer.Elapsed += new ElapsedEventHandler(playAnimation);
+                animTimer.Start();
+            }
+
+
+            if (state == 0)
+            {
+                
+            }
+            else if (state == 1)
+            {
+
+            }
+
+            
+
+            if (ImageX > 3)
+            {
+                ImageX = 0;
+            }
+            else if (ImageX < 0)
+            {
+                ImageX = 3;
+            }
+
+            if (ImageY > 3)
+            {
+                ImageY = 0;
+            }
+            else if (ImageY < 0)
+            {
+                ImageY = 3;
+            }
+
+            using (var spriteBatch = ds.CreateSpriteBatch())
+            {
+                if (Sprite != null)
+                {
+                    Sprite.DrawSpriteExt(
+                    spriteBatch,
+                    new Vector2(XPos, YPos),
+                    new Vector2(ImageX, ImageY),
+                    new Vector4(Red, Green, Blue, Alpha),
+                    (float)(angle + 0.5 * PI),
+                    new Vector2(XScale, YScale),
+                    0);
+                }
+            }
+        }
+
+        private void playAnimation(object source, ElapsedEventArgs e)
+        {
+            if (state == 0)
+            {
+                ImageY++;
+
+                if (ImageY % 2 == 0)
+                {   // Front / back of card
+                    animTimer.Interval = random.Next(3000, 7500);
+                }
+                else
+                {   // Card is in transition
+                    animTimer.Interval = 50;
+                }
+            }
+            else if (state == 1)
+            {
+                ImageY = 2;
+
+            }
+        }
+
+        private void updateMovement()
+        {
             int minLength = 200;
             int maxLength = 250;
 
@@ -95,7 +185,7 @@ namespace WizardGame.Classes.Entities
 
                 decidedAngle = lagAngle;
                 amplifier = 2.25;
-                
+
             }
             else if (state == 1)
             {   // Chasing state
@@ -138,21 +228,6 @@ namespace WizardGame.Classes.Entities
 
             XPos += (float)(speed * Cos(angle));
             YPos += (float)(speed * Sin(angle));
-
-            using (var spriteBatch = ds.CreateSpriteBatch())
-            {
-                if (Sprite != null)
-                {
-                    Sprite.DrawSpriteExt(
-                    spriteBatch,
-                    new Vector2(XPos, YPos),
-                    new Vector2(ImageX, ImageY),
-                    new Vector4(Red, Green, Blue, Alpha),
-                    (float)(angle - 0.5 * Math.PI),
-                    new Vector2(XScale, YScale),
-                    0);
-                }
-            }
         }
     }
 }
