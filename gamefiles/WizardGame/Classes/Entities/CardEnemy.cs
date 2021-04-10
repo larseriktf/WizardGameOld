@@ -16,19 +16,23 @@ namespace WizardGame.Classes.Entities
         public readonly int spriteWidth = 24;
         public readonly int spriteHeight = 24;
 
-        private double speed = 12;
+        private double speed = 6 + new Random().NextDouble() * 5;
         private double angle = 0.5 * Math.PI;
         private double decidedAngle = 0;
         private double targetAngle = 0;
         private double lagAngle = 0;
         private double turningSpeed = 0;
-        private double wiggle = 0.5;
+        
         private double dist = 0;
         private double amplifier = 0;
         
         private double threshold = 0;
         private int state = 0; // 0: Guarding, 1: Chasing, 2: Dead
-        
+
+        private double wiggleRate = new Random().NextDouble() * 0.1;
+        private double wiggleMultiplier = new Random().NextDouble() * 0.025;
+        private double wiggle = new Random().NextDouble();
+
         // For debugging
         public static double Angle = 0;
         public static double TargetAngle = 0;
@@ -74,6 +78,12 @@ namespace WizardGame.Classes.Entities
                     lagAngle += 2 * PI;
                 }
 
+                // Range Threshold
+                if (dist < maxLength)
+                {
+                    threshold = (PI * 0.5) * ((dist - minLength) / (maxLength - minLength));
+                }
+
                 if (lagAngle > PI + targetAngle && lagAngle < PI + targetAngle + threshold)
                 {
                     lagAngle = PI + targetAngle + threshold;
@@ -84,8 +94,6 @@ namespace WizardGame.Classes.Entities
                 }
 
                 decidedAngle = lagAngle;
-
-                wiggle += 0.08;
                 amplifier = 2.25;
                 
             }
@@ -95,8 +103,6 @@ namespace WizardGame.Classes.Entities
                 targetAngle = EntityManager.GetAngleBetweenEntitiesInRadians(this, target);
 
                 decidedAngle = angle;
-
-                wiggle += 0.04;
                 amplifier = 2.0;
             }
 
@@ -110,17 +116,12 @@ namespace WizardGame.Classes.Entities
                 angle += 2 * PI;
             }
 
-            // Range Threshold
-            if (dist < maxLength)
-            {
-                threshold = (PI * 0.5) * ((dist - minLength) / (maxLength - minLength));
-            }
-
             turningSpeed = 0.05 * (EntityManager.GetCrossProductOfTwoVectors(
                                     new Vector2((float)Cos(decidedAngle), (float)Sin(decidedAngle)),
                                     new Vector2((float)Cos(targetAngle), (float)Sin(targetAngle))));
+            wiggle += wiggleRate;
 
-            angle += turningSpeed * amplifier + Sin(wiggle) * 0.025;
+            angle += turningSpeed * amplifier + Sin(wiggle) * wiggleMultiplier;
 
             //// Debug
             //Angle = angle;
