@@ -21,7 +21,7 @@ namespace WizardGame.Classes.Entities
         private static readonly Random random = new Random();
 
         private readonly double speed = 6 + random.NextDouble() * 5;
-        private double angle = 0.5 * Math.PI;
+        private double angle = random.NextDouble() * 2 * Math.PI;
         private double decidedAngle = 0;
         private double targetAngle = 0;
         private double lagAngle = 0;
@@ -50,21 +50,42 @@ namespace WizardGame.Classes.Entities
             Sprite = await SpriteSheet.LoadSpriteSheetAsync(device, BitMapUri, new Vector2(spriteWidth, spriteHeight));
         }
 
+        public static void Spawner(float x, float y, int amount)
+        {
+            int min = -16;
+            int max = 16;
+
+            EntityManager.gameEntities.Add(new Target()
+            {
+                XPos = x,
+                YPos = x
+            });
+
+            for (int i = 0; i < amount; i++)
+            {
+                EntityManager.gameEntities.Add(new CardEnemy()
+                {
+                    XPos = x + (float)random.NextDouble() * (max - min) + min,
+                    YPos = y + (float)random.NextDouble() * (max - min) + min
+                });
+            }
+        }
+
         public void DrawSelf(CanvasDrawingSession ds)
         {
 
-            detectStateChange();
-            updateMovement();
+            DetectStateChange();
+            UpdateMovement();
 
             if (animTimer == null)
             {
                 ImageX = random.Next(0, 3);
 
-                animTimer = new Timer(1000);
+                animTimer = new Timer(random.Next(0, 2000));
 
                 animTimer.Elapsed += delegate(object source, ElapsedEventArgs e)
                 {   // Plays animation on timer tick
-                    playAnimation();
+                    PlayAnimation();
                 };
                 animTimer.Start();
             }
@@ -103,18 +124,18 @@ namespace WizardGame.Classes.Entities
             }
         }
 
-        private void detectStateChange()
+        private void DetectStateChange()
         {
             int prevState = 0;
 
             if (state != prevState)
             {
-                playAnimation();
+                PlayAnimation();
                 prevState = state;
             }
         }
 
-        private void playAnimation()
+        private void PlayAnimation()
         {
             if (state == 0)
             {
@@ -122,7 +143,7 @@ namespace WizardGame.Classes.Entities
 
                 if (ImageY % 2 == 0)
                 {   // Front / back of card
-                    animTimer.Interval = random.Next(3000, 7500);
+                    animTimer.Interval = random.Next(1000, 3000);
                 }
                 else
                 {   // Card is in transition
@@ -131,21 +152,15 @@ namespace WizardGame.Classes.Entities
             }
             else if (state == 1)
             {
-                if (ImageY % 2 == 0)
-                {   // Front / back of card
-                    ImageY = 2;
-                }
-                else
-                {   // Card is in transition
+                if (ImageY != 2)
+                {   // Back side or mid transition
+                    ImageY++;
                     animTimer.Interval = 50;
                 }
-
             }
         }
 
-        
-
-        private void updateMovement()
+        private void UpdateMovement()
         {
             int minLength = 200;
             int maxLength = 250;

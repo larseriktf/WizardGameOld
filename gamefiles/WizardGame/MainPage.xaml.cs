@@ -78,64 +78,10 @@ namespace WizardGame
 
         async Task LoadResourcesAsync(CanvasAnimatedControl sender)
         {   // Loads images and spritesheets
-            //Player.Sprite = await SpriteSheet.LoadSpriteSheetAsync(sender.Device, Player.bitMapUri, new Vector2(Player.spriteWidth, Player.spriteHeight));
-            //CardEnemy.Sprite = await SpriteSheet.LoadSpriteSheetAsync(sender.Device, CardEnemy.bitMapUri, new Vector2(CardEnemy.spriteWidth, CardEnemy.spriteHeight));
-            //Target.BitMap = await CanvasBitmap.LoadAsync(sender.Device, new Uri(Target.bitMapUri));
 
             EntityManager.gameEntities.Add(new Player());
-            EntityManager.gameEntities.Add(new Target()
-            {
-                XPos = 500,
-                YPos = 500
-            });
-            //EntityManager.gameEntities.Add(new Target()
-            //{
-            //    XPos = 1000,
-            //    YPos = 500
-            //});
-            EntityManager.gameEntities.Add(new CardEnemy()
-            {
-                XPos = 1200,
-                YPos = 550
-            });
-            EntityManager.gameEntities.Add(new CardEnemy()
-            {
-                XPos = 100,
-                YPos = 500
-            });
-            EntityManager.gameEntities.Add(new CardEnemy()
-            {
-                XPos = 500,
-                YPos = 550
-            });
-            EntityManager.gameEntities.Add(new CardEnemy()
-            {
-                XPos = 100,
-                YPos = 100
-            });
-            EntityManager.gameEntities.Add(new CardEnemy()
-            {
-                XPos = 150,
-                YPos = 550
-            });
-            EntityManager.gameEntities.Add(new CardEnemy()
-            {
-                XPos = 750,
-                YPos = 600
-            });
-            //EntityManager.gameEntities.Add(new CardEnemy()
-            //{
-            //    XPos = 600,
-            //    YPos = 500
-            //});
-            //EntityManager.gameEntities.Add(new CardEnemy()
-            //{
-            //    XPos = 700,
-            //    YPos = 500
-            //});
 
-
-
+            CardEnemy.Spawner(500, 500, 32);
 
             //mapSpriteSheets.Add(
             //    "dev",
